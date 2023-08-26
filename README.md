@@ -1,6 +1,6 @@
 # MERN-Full-Stack-Ecom-WebApp
 # Currentaly Working on this Project
-# Basic Set-Up ****************************************
+# Basic Set-Up *****************************
 
 
 step 1:- create-react-app client.
@@ -21,7 +21,7 @@ atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
 
-# Creating Our Layout *********************************
+# Creating Our Layout ********************
 
 
 step 6:- creating component folder inside the src and inside the components created theree files
@@ -50,7 +50,7 @@ step 10:- Giving the class = text-center to the h1 of footer and write 'All Righ
 
 
 
-# Routing Features **************************************
+# Routing Features **********************
 
 
 step 11:- For routing we are going to use 'react-router-dom' framework , installing it by passing command 'npm i react-router-dom'.
@@ -93,7 +93,7 @@ NOTE--- '*' Means when none of above pages meets then navigates to PageNotFound 
 # NavBar
 ![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/cd8866fe-340a-4aa2-a303-e9b27e7c8a0b)
 
-# Working On NavBar Section *****************************************************
+# Working On NavBar Section *********************
 
 
 step 20:- Going to bootstrap click on 'docs' and search 'navbar' in searchbar and select responsive behaviour from
@@ -130,7 +130,7 @@ step 20:- Going to bootstrap click on 'docs' and search 'navbar' in searchbar an
 ![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/61ef0413-8365-430b-8dc0-5227869ac818)
 
 
-# Working on Footer Component ****************************************
+# Working on Footer Component *********************
 
 
 
@@ -151,7 +151,7 @@ step 21:- Now going to Mordify our Footer components.....
 
 
 
-# Working on PageNotFound Component *********************************************        
+# Working on PageNotFound Component ********************     
 
 step 22:- Creating Page Not Fount page----
 
@@ -165,7 +165,7 @@ step 22:- Creating Page Not Fount page----
 ![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/d267b3d7-fa80-4c17-bbb7-f509500a2933)
 
 
-# Working on Contact Component **************************************************        
+# Working on Contact Component ******************    
 
 step 23:- Now going to design our Contact component-----
 
@@ -190,7 +190,7 @@ step 23:- Now going to design our Contact component-----
 
 
 
-# Working On About Component **************************************************           
+# Working On About Component **********************         
 
 step 24:- Now going to modify About Component------
 
@@ -206,7 +206,7 @@ step 24:- Now going to modify About Component------
 
 
 
-# Worling On Privacy Policy Component *********************************************
+# Worling On Privacy Policy Component **********************
 
 step 25:- Now going to design our Privacy-Policy Components-------
 
@@ -220,7 +220,7 @@ step 25:- Now going to design our Privacy-Policy Components-------
 
 
 
-# Little bit Working on SEO ********************************************************
+# Little bit Working on SEO **********************
 
 step 26:- Working on SEO [Search Engine Optimisation.]
 
@@ -255,7 +255,7 @@ step 26:- Working on SEO [Search Engine Optimisation.]
 
 
 
-# Working on Sign-Up Component ****************************************************
+# Working on Sign-Up Component ************************
 
 step 27:- Now we are going to design our Sign-Up Page. first create two Components inside the users folder of pages.
 
@@ -296,7 +296,7 @@ step 27:- Now we are going to design our Sign-Up Page. first create two Componen
                              *************** END ******************
 
 
-# Working On APIs From BackEnd *************************************************
+# Working On APIs From BackEnd **********************
 
 step 28:- Now going to use axios for sending or getiing network request to the server---
 
@@ -348,7 +348,7 @@ step 31:- Same things has been achived for login Component also we have to just 
                                 ****************** END **********************
 
 
-# Working On Context APIs ******************************************************
+# Working On Context APIs ***********************
 
 
 step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLOBAL STATEs----->
@@ -530,7 +530,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
 
 
-# Working On Procted Routes ******************************************************
+# Working On Procted Routes ***************************
 
    step 33:- Now Going to create Protected Routes for our Application------
    
@@ -589,7 +589,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
 
 
-# Working On ForGet Password **************************************************************
+# Working On ForGet Password *************************
 
   step 34:- Working on forgot-Password------------>
   
@@ -621,7 +621,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                                *************** END *****************************
 
 
-# Working On Role Based Authentication ******************************************************
+# Working On Role Based Authentication ************************
 
 
   Step 34:- Working on Role based authentication--------------
@@ -634,7 +634,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                                 **************** END *********************************
 
 
-# Working on Dashboard and Admin *********************************
+# Working on Dashboard and Admin ************************
 
 
   Step 35:- Working on Admin and DashBoard---------------------------
@@ -718,7 +718,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                                        ******************* END *******************
 
 
-# Working on Categories *************************************
+# Working on Categories ********************
 
   step 36:- Working on Category--------------
   
@@ -863,7 +863,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
 
 
-# Working on Product's CRUD [Front-End]  **************************************
+# Working on Product's CRUD [Front-End]  **********************
 
    Step 38:- Working on Products ---------------------
 
