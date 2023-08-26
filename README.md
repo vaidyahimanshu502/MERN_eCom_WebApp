@@ -4,9 +4,13 @@
 
 
 step 1:- create-react-app client.
+
 step 2:- remove the all codes from app.css, index.css, app.js [excepts component].
+
 step 3:- write a h1 tag inside the app component.
+
 step 4:- Now addinc bootstrap into index.html file of public.
+
 atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
@@ -21,14 +25,22 @@ atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
 step 6:- creating component folder inside the src and inside the components created theree files
+
         1]- Layout.js [make it functional components]--rfce{shortcut}
+        
         2]- Header.js
+        
         3]- Footer.js        
+        
 step 7:- Now wrapping our app component into the Layout component and in Layout component pass props and for
         rendering the child of Layout components written --- {props.children}.
+        
 step 8:- Adding Header and Footer components to the Layout component.
+
 step 9:- Giving the min Height = 80vh to the main tag for  shifting footer bellow.
+
 step 9:- Giving the className of footer and giving some bootstrap styles. [class= bg-dark text-light p-3]
+
 step 10:- Giving the class = text-center to the h1 of footer and write 'All Right Reserved &copy; Techinfoyt'.
 
 
@@ -42,21 +54,35 @@ step 10:- Giving the class = text-center to the h1 of footer and write 'All Righ
 
 
 step 11:- For routing we are going to use 'react-router-dom' framework , installing it by passing command 'npm i react-router-dom'.
+
 step 12:- changing the title of our app to Ecommerce app.
+
 step 13:- In index.js importing {BrowserRouter} from "react-router-dom" and wrapp the React Strict mode inside the
           <BrowserRouter> tag.
+          
 step 14:- Creating a HomePage component and make it functional component and wrap it with <Layout>.
+
 step 15:- Creating a About page and also wrap it with <Layout>.
+
 step 16:- Creating Contact functional component and also wrap it with <Layout>.
+
 step 17:- Creating Policy functional component and wrap it with <Layout>.
+
 step 18:- Creating PageNotFound functional component and also wrap it with <Layout>.
+
 step 19:- Removing everything from App.js and also removes the previous imports and import {Routes, Route} from
          'react-router-dom' and start the process of making routes, first wrap the all Route with <Routes> and::--
+         
          a]<Route path='/' element = {<HomePage />} /> and importing HomePage at the top.
+         
          b]<Route path='/about' element = {<About />} /> and import the About at the top.
+         
          c]<Route path='/contact' element = {<Contact />} /> and import the Contact at the top.\
+         
          d]<Route path='/policy' element = {<Policy />} /> and import the Policy at the top.
+         
          e]<Route path='*' element = {<PageNotFound />} /> and import the PageNotFound at the top.
+         
 NOTE--- '*' Means when none of above pages meets then navigates to PageNotFound functional components.
 
 
@@ -73,15 +99,25 @@ NOTE--- '*' Means when none of above pages meets then navigates to PageNotFound 
 step 20:- Going to bootstrap click on 'docs' and search 'navbar' in searchbar and select responsive behaviour from
           right side and copy the toggle bavbar and paste it in Header component by removing everything from Header
           and make it jsx and removes the form and button.
+          
             ---->Importing <NavLink> from 'react-router-dom' and replace all anchor tags with <NavLink>.
+            
             ---->Adding to = '/', '/about', '/contact' etc inside the anchor tag.
+            
             ----> we are just putting Home, SignUp, Login and, Cart links into the navBar.
+            
             ----> shifting all links to the right by replacing class me-auto to ms-auto.
+            
             ----> Adding some css to navbar.
+            
             ----> Just leave Home Button active remove active class from rest of the links.
+            
             ----> Just remove href from every Links.
+            
             ----> Changing our Brand Name with NavLink To Link And import it at top.
+            
             ----> For changing Icon we are going to install npm i react-icons;
+            
             ----> Go to react icons and search for shoping-cart and copy it ans import it as I impoted and 
                   also paste the name of icon where you want to show icons. For now pasted before BrandName.
 
