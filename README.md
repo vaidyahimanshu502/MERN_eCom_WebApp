@@ -253,6 +253,8 @@ step 26:- Working on SEO [Search Engine Optimisation.]
 
                            **************** END ********************
 
+# Sign-Up Page
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/db8f279f-ad5a-46d9-8448-574daf0dbe61)
 
 
 # Working on Sign-Up Component ************************
@@ -587,6 +589,12 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
                                 ***************** End **************************
 
+# Sign-In With Forgot Password
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/53c4636f-6adb-4fc0-b5a8-43fdde32371d)
+# UserLog-In
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/6ab7bae0-0e2a-458b-8ddd-19f4e2f6e3af)
+# User's Dashboard
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/8bea743e-74e8-44a4-9b90-aab3791f7497)
 
 
 # Working On ForGet Password *************************
@@ -632,6 +640,13 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
 
                                 **************** END *********************************
+
+# Admin Dashboard
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/998f0c3c-59af-4908-a930-6c9909f72835)
+# Create Category
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/00b4a2d2-4d45-4ceb-a25f-48660618e931)
+# Create Products
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/67b87f96-8e95-473b-883a-31d4fa20a0b1)
 
 
 # Working on Dashboard and Admin ************************
