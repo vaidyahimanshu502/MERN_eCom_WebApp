@@ -11,6 +11,9 @@ atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
 ***************************** END ***********************************************
+# Home Page View
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/f38287e6-03fc-4f13-b449-fc325c426e8e)
+
 
 
 
@@ -30,6 +33,8 @@ step 10:- Giving the class = text-center to the h1 of footer and write 'All Righ
 
 
 *************************************************** END **************************************************************************
+# Routing 
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/525c2fb8-5496-4b97-8d27-fc0f280556a2)
 
 
 
@@ -59,6 +64,8 @@ NOTE--- '*' Means when none of above pages meets then navigates to PageNotFound 
 
 
 
+# NavBar
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/cd8866fe-340a-4aa2-a303-e9b27e7c8a0b)
 
 # Working On NavBar Section *****************************************************
 
@@ -83,6 +90,8 @@ step 20:- Going to bootstrap click on 'docs' and search 'navbar' in searchbar an
 *********************************** END **************************************************************************
 
 
+# Footer
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/61ef0413-8365-430b-8dc0-5227869ac818)
 
 
 # Working on Footer Component ****************************************
@@ -99,6 +108,8 @@ step 21:- Now going to Mordify our Footer components.....
 
 
 *********************************** END **************************************************************************
+# Page Not Found
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/bb04e5d0-8412-4a5e-911b-4f551a75f4c9)
 
 
 
@@ -111,6 +122,8 @@ step 22:- Creating Page Not Fount page----
 
 
 *********************************** END **************************************************************************
+# Contact
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/d267b3d7-fa80-4c17-bbb7-f509500a2933)
 
 
 # Working on Contact Component **************************************************        
@@ -129,6 +142,8 @@ step 23:- Now going to design our Contact component-----
 
 
 *********************************** END **************************************************************************
+# About 
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/5d38d1ec-4744-4193-b714-6095e1225949)
 
 
 
@@ -140,6 +155,10 @@ step 24:- Now going to modify About Component------
 
 
 *********************************** END **************************************************************************
+# Privacy
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/78f17ccf-88e8-4953-ab62-eb956457967d)
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/04ddbd39-d54d-49ff-99a1-715909a19401)
+![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/3584b4b4-9f68-46c8-806a-29ec2e559c81)
 
 
 
