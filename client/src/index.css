@@ -1,0 +1,190 @@
+/* Adding google fonts */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
+/* End of google fonts */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Use this for Headings : [font-family: 'Playfair Display', serif;] */
+/* Use this for font family : [font-family: 'Poppins', sans-serif;] */
+
+/* Styling NavBar */
+.navbar {
+  font-family: "Poppins", sans-serif;
+  font-size: 17px;
+  line-height: 20px;
+  text-transform: none;
+  /* box-shadow: 3px 4px 3px gray; */
+  /* --webkit-box-shadow: 2px 4px 3px gray; */
+  border-bottom: 2px solid black !important;
+  background-color: rgb(56, 56, 228) !important;
+  font-weight: 300;
+  /* max-height: 70px; */
+  /* max-width: 99.5%; */
+  /* margin-left: 5px; */
+  margin-top: 3px;
+  width: 100%;
+  /* height: 100%; */
+}
+
+.nav-link {
+  font-weight: 400 !important;
+  color: white;
+}
+
+.nav-link:hover {
+  color: burlywood;
+}
+
+.active {
+  border-bottom: 1px solid darkgray;
+  color: darkgray !important;
+}
+
+.navbar-brand {
+  font-weight: 900;
+  font-family: "roboto", sans-serif;
+  letter-spacing: 6px;
+  color: white;
+  text-transform: none;
+  font-style: italic;
+}
+.navbar-brand:hover {
+  color: burlywood;
+}
+
+.brand-icon {
+  color: rgb(252, 2, 2);
+  font-size: 30px;
+  font-weight: bolder;
+  font-style: italic;
+}
+
+.slogan {
+  font-weight: 100 !important;
+  font-size: 14px;
+  letter-spacing: 6px;
+  /* text-decoration: underline; */
+  margin-left: 120px;
+  margin-top: -3px;
+}
+
+/* **********Footer********* */
+.footer {
+  color: white;
+  padding: 25px;
+  background-image: linear-gradient(to right, rgb(56, 56, 78), #422b2b);
+  /* max-width: 99.5%; */
+  width: 100%;
+  height: 100%;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+
+.footer a:hover {
+  color: darkgrey;
+  border-bottom: 2px solid darkgray;
+}
+
+/* *******Page Not Found css******** */
+.pnf {
+  display: flex;
+  min-height: 65vh;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.pnf-title {
+  font-size: 150px;
+  font-weight: 700;
+  color: darkgrey;
+}
+
+.pnf-heading {
+  font-weight: normal;
+  color: gray;
+}
+
+.pnf-btn {
+  color: black;
+  border: 1px solid black;
+  text-decoration: none;
+  padding: 5px;
+  margin-top: 10px;
+}
+
+.pnf-btn:hover {
+  color: white;
+  background: darkgrey;
+}
+
+/* ********CSS for Contact-Us Component********** */
+/* .Contact {
+  width: 100%;
+  height: 100%;
+} */
+.img-cont {
+  margin-top: 3vh;
+  /* margin-bottom: 10px; */
+  margin-left: 3vh;
+  margin-right: 2vh;
+}
+
+.contact-img {
+  border-radius: 10px;
+}
+
+.text-cont {
+  margin-top: 3vh;
+  /* margin-bottom: 10px; */
+  margin-left: 3vh;
+  margin-right: 2vh;
+}
+
+/* *******Giving styles to About Component******** */
+/* .about-text {
+  margin-left: 50vw;
+} */
+
+.about-img {
+  border-radius: 10px;
+}
+
+/* ^^^^^^Styling Privacy-Policy^^^^^^^^^ */
+.policy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* *******Styling our Sign-Up page******** */
+/* .register {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  flex-direction: column;
+} */
+
+/* *********************Stylong Log-In, Sign-In, Forgot-Password Cimponent******************** */
+.log-in-form-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65vh;
+  flex-direction: column;
+}
+.form-container button {
+  width: 100% !important;
+}
