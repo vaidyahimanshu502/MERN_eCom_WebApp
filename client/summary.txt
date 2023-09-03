@@ -698,26 +698,40 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                      </Select>
                      </div>
 
-<<<<<<< HEAD
+
 
           ************ We have to include onClick={handleCreate} in buttons ************
 
 
-=======
-                     ************ We have to include onClick={handleCreate} in buttons ************
->>>>>>> origin/master
+
+          ************ We have to include onClick={handleCreate} in buttons ************
+
                      <div className="mb-3">
                      <button className="btn btn-primary">Create-Product</button>
                      </div>
-               
-<<<<<<< HEAD
+
                    a] Now creating a method in createProduct component 'handleCreate' first i have handled
                       preventDefault behaviour of form, after that creating instance [OBJECT] of FormData and
                       appended all incoming fields like photo, name , category. price etc.
                    b] In this method I have called axios request and pass the form fields to the API endPoints
                       for more info please visit CreateProduct Page.
-=======
 
->>>>>>> origin/master
+        *************** Now going to works on product Page ****************************
+
+                   a] Create a file Product.js inside the Admin folder and making it rafce and wrap it with Layout
+                      and using grid system as previous.
+                   b] In app.js creating routes for it in AdminDashboard private protected route.
+                   c] Importing useState and useEffect, axios, toast and going to call API from backend to get all
+                      products.
+                   d] Now going to use bootstrap cards for showing items and filled neccessory fields see for more
+                      info and for image called API inside src of image tag.
+         
+         ************** Now Working on Update Products ***********************************
+                   
+                   a] For this first created UpdateProduct component inside admin folder and make it rafce and also
+                      wrap it with Layout.
+
+
+
 
 
