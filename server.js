@@ -30,6 +30,7 @@ app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/product", productsRouter);
 
 // Rest APIs jsut for home page testing purpose
+
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to E-com Website!</h1>");
 });

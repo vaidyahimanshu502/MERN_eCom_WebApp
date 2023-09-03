@@ -6,7 +6,6 @@ import toast from "react-hot-toast";
 import { Select } from "antd";
 import { useNavigate } from "react-router-dom";
 
-//destructuring Options from Select
 const { Option } = Select;
 
 const CreateProducts = () => {
@@ -16,19 +15,16 @@ const CreateProducts = () => {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [category, setCategory] = useState("");
-  const [quantity, setQuantiy] = useState("");
+  const [quantity, setQuantity] = useState(""); // Corrected typo
   const [shipping, setShipping] = useState("");
 
-  //Creating variable of navigate
   const navigate = useNavigate();
 
-  //Get categories
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/category/all-categories`
       );
-      // console.log(data?.categories)
       if (data?.success) {
         setCategories(data?.categories);
         toast.success(data.message);
@@ -41,16 +37,13 @@ const CreateProducts = () => {
     }
   };
 
-  //for initial life cycle
   useEffect(() => {
     getAllCategory();
   }, []);
 
-  //Create product function
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      //Taking form data by default browser behaviour --- creating instance of form data
       const productData = new FormData();
       productData.append("name", name);
       productData.append("description", description);
@@ -58,6 +51,7 @@ const CreateProducts = () => {
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
+      productData.append("shipping", shipping); // Added shipping data
 
       const { data } = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/product/create-product`,
@@ -91,23 +85,16 @@ const CreateProducts = () => {
                 size="large"
                 showSearch
                 className="form-select mb-3"
-                // onChange={(value) => {
-                //   setCategories(value);
-                // }}
                 onChange={(value) => {
-                  setCategory(value); // Update the correct state variable
+                  setCategory(value);
                 }}
               >
-                {categories?.map((category) => {
-                  // console.log(categories);
-                  return (
-                    <Option key={category._id} value={category._id}>
-                      {category.name}
-                    </Option>
-                  );
-                })}
+                {categories?.map((category) => (
+                  <Option key={category._id} value={category._id}>
+                    {category.name}
+                  </Option>
+                ))}
               </Select>
-              {/* For uploading photo */}
               <div className="mb-3">
                 <label className="btn btn-outline-secondary col-md-12">
                   {photo ? photo.name : "Upload Photo"}
@@ -122,12 +109,11 @@ const CreateProducts = () => {
                   />
                 </label>
               </div>
-              {/* for setting preview */}
               <div className="mb-3">
                 {photo && (
                   <div className="text-center">
                     <img
-                      src={URL.createObjectURL(photo)} // getting photo from URL
+                      src={URL.createObjectURL(photo)}
                       alt="product-photo"
                       height={"200px"}
                       className="img img-responsive"
@@ -135,7 +121,6 @@ const CreateProducts = () => {
                   </div>
                 )}
               </div>
-              {/* For taking more fields */}
               <div className="mb-3">
                 <input
                   type="text"
@@ -173,35 +158,30 @@ const CreateProducts = () => {
                 <input
                   type="number"
                   value={quantity}
-                  placeholder="Write Quantiy"
+                  placeholder="Write Quantity"
                   className="form-control"
                   onChange={(e) => {
-                    setQuantiy(e.target.value);
+                    setQuantity(e.target.value); // Corrected typo
                   }}
                 />
               </div>
               <Select
                 bordered={false}
-                placeholder="Select a Shipping"
+                placeholder="Select Shipping"
                 size="large"
                 showSearch
                 className="form-select mb-3"
-                // onChange={(value) => {
-                //   setCategories(value);
-                // }}
                 onChange={(value) => {
-                  setShipping(value); // Update the correct state variable
+                  setShipping(value);
                 }}
               >
-                <>
-                  <Option value="0">No</Option>
-                  <Option value="1">Yes</Option>
-                </>
+                <Option value="0">No</Option>
+                <Option value="1">Yes</Option>
               </Select>
             </div>
             <div className="mb-3">
               <button className="btn btn-primary" onClick={handleCreate}>
-                Create-Product
+                Create Product
               </button>
             </div>
           </div>

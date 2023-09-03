@@ -698,18 +698,26 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                      </Select>
                      </div>
 
+<<<<<<< HEAD
 
           ************ We have to include onClick={handleCreate} in buttons ************
 
 
+=======
+                     ************ We have to include onClick={handleCreate} in buttons ************
+>>>>>>> origin/master
                      <div className="mb-3">
                      <button className="btn btn-primary">Create-Product</button>
                      </div>
                
+<<<<<<< HEAD
                    a] Now creating a method in createProduct component 'handleCreate' first i have handled
                       preventDefault behaviour of form, after that creating instance [OBJECT] of FormData and
                       appended all incoming fields like photo, name , category. price etc.
                    b] In this method I have called axios request and pass the form fields to the API endPoints
                       for more info please visit CreateProduct Page.
+=======
+
+>>>>>>> origin/master
 
 
