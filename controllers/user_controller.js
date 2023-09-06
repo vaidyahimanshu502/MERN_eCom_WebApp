@@ -29,7 +29,7 @@ module.exports.registerController = async (req, res) => {
     const user = await UserModel.findOne({ email });
 
     if (!user) {
-      //incrypting our password
+      //encrypting our password
       const hashedPassword = await createHashPassword(password);
 
       //creating new user

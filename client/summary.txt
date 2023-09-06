@@ -730,8 +730,98 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                    
                    a] For this first created UpdateProduct component inside admin folder and make it rafce and also
                       wrap it with Layout.
+                   b] Cpying everything from CreateProduct component and make some changes----
+                        1). Creating a method for getting single product by which we can set the initial fields as
+                            it is 
+                            
+                            [ For getting single product we need to id also so for getting id from
+                            params we have to also import useParams hook from react-router-dom
+                            -- import { useNavigate, useParams } from "react-router-dom"; ] ----> 
+
+
+                            const getSingleProduct = async () => {
+                                    try {
+                                       const { data } = await axios.get(
+                                       `${process.env.REACT_APP_API}/api/v1/product/get-single-product/${params.slug}`
+                                       );
+                                       setName(data.product.name);
+                                       setId(data.product._id);
+                                       setDescription(data.product.description);
+                                       setPrice(data.product.price);
+                                       setCategory(data.product.category);
+                                       setQuantity(data.product.quantity);
+                                       setShipping(data.product.shipping);
+                                    } catch (error) {
+                                       console.log("Error in Getting Single Product!");
+                                       toast.error("Something went wrong in Getting single product!");
+                                    }
+                                 };
+                           2). For initial lifecycle calling it inside the useEffect--->
+                                 useEffect(() => {
+                                    getSingleProduct();
+                                    //eslint-disable-next-line
+                                 }, []);
+                           3). Since category is id based so created an extra state for id also--
+                               const [id, setId] = useState("");
+                           4). For setting initial value of shipping ans category we have to also pass the value of
+                               these fields inside their's input tag. ------ >>
+                               .  value={category.name}
+                               .   value={shipping ? "yes" : "no"}
+                           5). For setting initial photo i have implemented ternary operator if not photo then call api
+                               else Set new photo.
+                                {photo ? (
+                                       <div className="text-center">
+                                       <img
+                                          src={URL.createObjectURL(photo)}
+                                          alt="product-photo"
+                                          height={"200px"}
+                                          className="img img-responsive"
+                                       />
+                                       </div>
+                                    ) : (
+                                       <div className="text-center">
+                                       <img
+                                          src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`}
+                                          alt="product-photo"
+                                          height={"200px"}
+                                          className="img img-responsive"
+                                       />
+                                       </div>
+                                    )}
+                        
+
+                        -------------------------------EROOOORRRRRRRRRRRRRRRR--------------------------
+
+                        At the time of updating Product the category field should be ObjectId of the category but gone 
+                        whole Category object so it throw me error I have tried to solve this for almost 2 an hours and
+                        then correcte it by setting up two states for Category one for showing the name and one for 
+                        sending the ObjectId to the server 
+
+                        --------------------------- >
+                          // const [category, setCategory] = useState("");
+                           const [selectedCategory, setSelectedCategory] = useState(""); // For FormData
+                           const [displayedCategory, setDisplayedCategory] = useState(""); 
 
 
 
+                           ------------------------------>
 
+                           // setCategory(data.product.category);
+                           setSelectedCategory(data.product.category._id); // Set ObjectId
+                           setDisplayedCategory(data.product.category.name);
+
+                        __________> in handleUpdate method
+                            productData.append("category", selectedCategory);
+                        
+                        __________> For showing it in form field
+                            // onChange={(value) => {
+                              //   setCategory(value);
+                              // }}
+                              // value={category}
+
+                              onChange={(value, option) => {
+                                 setSelectedCategory(value); // Set ObjectId
+                                 setDisplayedCategory(option); // Set category name for rendering
+                              }}
+                              value={displayedCategory}
 

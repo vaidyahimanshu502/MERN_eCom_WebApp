@@ -192,7 +192,7 @@ module.exports.deleteProduct = async (req, res) => {
 module.exports.updataProduct = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log(req.fields);
+    // console.log(req.fields);
     const { name, description, price, category, quantity, shipping } =
       req.fields;
     const { photo } = req.files;

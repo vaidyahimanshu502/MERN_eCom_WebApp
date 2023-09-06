@@ -26,11 +26,12 @@ const CreateCategory = () => {
       if (data?.success) {
         toast.success(`${name} is Created!`);
         getAllCategory();
+        setName("")
       } else {
         toast.error(data.message);
       }
     } catch (error) {
-      console.log(error);
+      console.log("Error in creating category", error);
       toast.error("Something went wrong in input form!");
     }
   };
@@ -69,7 +70,7 @@ const CreateCategory = () => {
           name: updatedName,
         }
       );
-      if (data.success) {
+      if (data?.success) {
         toast.success(data.message);
         setSelected(null);
         setUpdatedName("");
