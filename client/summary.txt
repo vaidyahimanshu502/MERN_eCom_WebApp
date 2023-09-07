@@ -825,3 +825,22 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                               }}
                               value={displayedCategory}
 
+
+       ******************** Working On Delete-Product ******************
+                      
+                      a] Creating a button for delete the product inside the UpdateProduct Component
+                      b] Now creating the function handleDelete for calling API for Delete the Product.
+
+
+   *******************  END *********************************
+
+   ********************* Going to work on home page *****************************
+
+    step 39. Working on Home page--------------
+
+         a] Inside home page devide it into two pars by using grid system of bootstrap one for filter and one for 
+            showing products.
+         b] Creating a custom method for calling API for getting all producs and call it inside the useEffect cycle.
+         c] For showing products using card of bootstrap and created two buttons.
+              See Home Component for more info.
+
