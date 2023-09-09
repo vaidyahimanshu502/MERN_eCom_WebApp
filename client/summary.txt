@@ -843,4 +843,93 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
          b] Creating a custom method for calling API for getting all producs and call it inside the useEffect cycle.
          c] For showing products using card of bootstrap and created two buttons.
               See Home Component for more info.
+         d] Importing checkbox from ant design and copying gelAllCategory method from CreateCategory Component and 
+            paste it in HomePage Component.
+         e] By using map method we are iterating over categories and printing theirs name on home page and also importing 
+            CheckBox from antd and wraping it inside checkbox
+              <div className="col-md-2 d-flex flex-column">
+                  <h5 className="text-center">Filter By Category</h5>
+                  {categories?.map((c) => (
+                     <Checkbox
+                     key={c._id}
+                     onChange={(e) => handleFilter(e.target.checked, c._id)}
+                     className="m-1"
+                     >
+                     {c.name}
+                     </Checkbox>
+                  ))}
+                  
+          f]  now working on onChange method for this i created a state for checked, setChecked
+               const [checked, setChecked] = useState([]);
+            
+
+            after this working on methods so we supposed to perform filter on selected categories
+            const handleFilter = (value, id) => {
+                        let all = [...checked];
+                        if (value) {
+                           all.push(id);
+                        } else {
+                           all = all.filter((c) => c !== id);
+                        }
+                        console.log(all);
+                        setChecked(all);
+                     };
+
+           g] Now we also want to perform filter on the basis of prices so first i created a file containing 
+              array of prices... Prices.js inside the Component
+              export const prices = [
+                     {
+                        _id: 0,
+                        name: "Rs.0 to 100",
+                        array: [0, 100],
+                     },
+                     {
+                        _id: 1,
+                        name: "Rs.100 to 1000",
+                        array: [100, 1000],
+                     },
+                     {
+                        _id: 2,
+                        name: "Rs.1000 to 10000",
+                        array: [1000, 10000],
+                     },
+                     {
+                        _id: 3,
+                        name: "Rs.10000 to 20000",
+                        array: [10000, 20000],
+                     },
+                     {
+                        _id: 4,
+                        name: "Rs.20000 to 30000",
+                        array: [20000, 30000],
+                     },
+                     {
+                        _id: 5,
+                        name: "Rs.30000 to 40000",
+                        array: [30000, 40000],
+                     },
+                     {
+                        _id: 6,
+                        name: "Rs.40000 or more",
+                        array: [40000, 100000],
+                     },
+                     ];
+               Ater that importing Radio from antd and also created state for prices also.
+               const [radio, setRadio] = useState([]);
+
+               for performing filter by prices again created a map method for iterating over Array of prices
+               
+                {/* Filter by prices */}
+                        <h5 className="text-center mt-3">Filter By Price</h5>
+                        <Radio.Group onChange={(e) => setRadio(e.target.value)}>
+                           {prices?.map((p) => (
+                           <div key={p._id}>
+                              <Radio value={p.array}>{p.name}</Radio>
+                           </div>
+                           ))}
+                        </Radio.Group>
+                     </div>
+
+
+             
 

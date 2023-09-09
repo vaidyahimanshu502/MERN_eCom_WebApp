@@ -5,6 +5,7 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
 
+
 const Products = () => {
   const [products, setProducts] = useState([]);
 
@@ -47,7 +48,10 @@ const Products = () => {
                   to={`/dashboard/admin/products/${p.slug}`}
                   className="product-link"
                 >
-                  <div className="card product-card m-2" style={{ width: "18rem" }}>
+                  <div
+                    className="card product-card m-2"
+                    style={{ width: "18rem" }}
+                  >
                     <img
                       src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                       className="card-img-top"
