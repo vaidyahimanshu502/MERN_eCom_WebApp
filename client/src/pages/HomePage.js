@@ -45,10 +45,7 @@ function HomePage() {
       toast.error("Something went wrong in gett all products!");
     }
   };
-  //initial life cycle of products
-  useEffect(() => {
-    getAllProducts();
-  }, []);
+
   // console.log("Products=====", products);
 
   // Applying filter by categories
@@ -62,6 +59,34 @@ function HomePage() {
     console.log(all);
     setChecked(all);
   };
+
+  // Handle filter operation
+  const filterProduct = async () => {
+    try {
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/product-filter`,
+        {
+          checked,
+          radio,
+        }
+      );
+      setProducts(data?.products);
+    } catch (error) {
+      console.log("Error in filtering the products!", error);
+      toast.error("Error in filtering the products!");
+    }
+  };
+
+  //initial life cycle of products
+  useEffect(() => {
+    if (!checked.length || radio.length) getAllProducts();
+    //eslint-disable-next-line
+  }, [checked.length, radio.length]);
+
+  // For rendering Filtered Products
+  useEffect(() => {
+    if (checked.length || radio.length) filterProduct();
+  }, [checked, radio]);
   return (
     <Layout title={"All-Products | Best Offers"}>
       <div className="row mt-3">
@@ -102,7 +127,10 @@ function HomePage() {
                 />
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
-                  <p className="card-text">{p.description}</p>
+                  <p className="card-text">
+                    {p.description.substring(0, 30)}...
+                  </p>
+                  <h5 className="text-center">Rs.- {p.price} </h5>
                   <div>
                     <button className="btn btn-primary ms-1">
                       More-Details

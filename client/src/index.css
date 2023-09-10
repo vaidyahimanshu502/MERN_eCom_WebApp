@@ -40,24 +40,24 @@
 }
 
 .active {
-  border-bottom: 1px solid darkgray;
-  color: darkgray !important;
+  border-bottom: 1px solid rgb(146, 246, 7);
+  color: rgb(146, 246, 7) !important;
 }
 
 .navbar-brand {
   font-weight: 900;
   font-family: "roboto", sans-serif;
-  letter-spacing: 6px;
-  color: white;
+  letter-spacing: 4px;
+  color: rgb(252, 252, 252);
   text-transform: none;
   font-style: italic;
 }
 .navbar-brand:hover {
-  color: burlywood;
+  color: rgb(255, 213, 2);
 }
 
 .brand-icon {
-  color: rgb(252, 2, 2);
+  /* color: rgb(252, 2, 2); */
   font-size: 30px;
   font-weight: bolder;
   font-style: italic;
@@ -66,7 +66,7 @@
 .slogan {
   font-weight: 100 !important;
   font-size: 14px;
-  letter-spacing: 6px;
+  letter-spacing: 3px;
   /* text-decoration: underline; */
   margin-left: 120px;
   margin-top: -3px;
@@ -204,11 +204,11 @@
 }
 .product-link img {
   height: 150px;
-  width: 170px;
+  /* width: 170px; */
   margin-left: 7px;
 }
 .product-card {
-  height: 300px;
+  /* height: 300px; */
   width: 200px !important;
   /* width: calc(
     33.33%

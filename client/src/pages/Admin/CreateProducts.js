@@ -77,7 +77,7 @@ const CreateProducts = () => {
             <AdminMenu />
           </div>
           <div className="col-md-9">
-            <h1>Create Product</h1>
+            <h1>Create-Product</h1>
             <div className="div m-1 w-75">
               <Select
                 bordered={false}
@@ -97,7 +97,7 @@ const CreateProducts = () => {
               </Select>
               <div className="mb-3">
                 <label className="btn btn-outline-secondary col-md-12">
-                  {photo ? photo.name : "Upload Photo"}
+                  {photo ? photo.name : "Upload-Photo"}
                   <input
                     type="file"
                     name="photo"
@@ -181,7 +181,7 @@ const CreateProducts = () => {
             </div>
             <div className="mb-3">
               <button className="btn btn-primary" onClick={handleCreate}>
-                Create Product
+                Create-Product
               </button>
             </div>
           </div>

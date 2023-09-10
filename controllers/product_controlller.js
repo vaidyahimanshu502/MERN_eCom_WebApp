@@ -258,3 +258,37 @@ module.exports.updataProduct = async (req, res) => {
     });
   }
 };
+
+//Filters logics
+module.exports.productFilterController = async (req, res) => {
+  try {
+    //getting values from front-end
+    const { checked, radio } = req.body;
+    //creating variables for checked and radio from front-end
+    let args = {};
+    //checking for checkbox bcz it can be multiple
+    if (checked.length > 0) {
+      args.category = checked;
+    }
+    // checking for Radio and since it can be select one at a time
+    if (radio.length) {
+      args.price = { $gte: radio[0], $lte: radio[1] }; // mongoDB query for verifying price with price getting from front-end
+    }
+    //finding products in DB based on args
+    const products = await productModel.find(args);
+    return res.status(200).send({
+      success: true,
+      message: " List Of Filtered-Products!",
+      products,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};

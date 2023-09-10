@@ -34,7 +34,7 @@ function Header() {
           </button>
           <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
             <Link to="/" className="navbar-brand">
-              <TbHexagonLetterH className="brand-icon" /> Ecom-WebApp
+              <TbHexagonLetterH className="brand-icon" /> Daily-Mart
               <br />
               <p className="slogan">
                 <RxStitchesLogo /> A Beter Choice...
