@@ -14,7 +14,7 @@ const Products = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/product/get-product`
       );
-      console.log(data.products);
+      // console.log(data.products);
       if (data?.success) {
         setProducts(data.products);
         toast.success(data.message);
