@@ -12,6 +12,13 @@ function HomePage() {
   const [checked, setChecked] = useState([]);
   const [radio, setRadio] = useState([]);
 
+  // states for paginations
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+
+  // states for loading the page
+  const [loading, setLoading] = useState(false);
+
   //Get categories
   const getAllCategory = async () => {
     try {
@@ -34,13 +41,22 @@ function HomePage() {
   // getting all products
   const getAllProducts = async () => {
     try {
+      // Handling paginations
+      setLoading(true);
+      // const { data } = await axios.get(
+      //   `${process.env.REACT_APP_API}/api/v1/product/get-product`
+      // );
+
+      // now
       const { data } = await axios.get(
-        `${process.env.REACT_APP_API}/api/v1/product/get-product`
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
       );
       if (data?.success) {
+        setLoading(false);
         setProducts(data.products);
       }
     } catch (error) {
+      setLoading(false);
       console.log("Error in getting all producs!");
       toast.error("Something went wrong in gett all products!");
     }
@@ -63,6 +79,12 @@ function HomePage() {
   // Handle filter operation
   const filterProduct = async () => {
     try {
+      console.log(
+        "Filtering products with checked:",
+        checked,
+        "and radio:",
+        radio
+      );
       const { data } = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/product/product-filter`,
         {
@@ -87,6 +109,45 @@ function HomePage() {
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
   }, [checked, radio]);
+
+  // get total count of products
+  const getTotal = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-count`
+      );
+      setTotal(data?.total);
+    } catch (error) {
+      console.log("error in getting count of total products!");
+      toast.error("Something went wrong in counting the products!");
+    }
+  };
+
+  useEffect(() => {
+    getTotal();
+  }, []);
+
+  // load more
+  const loadMore = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+      );
+      setLoading(false);
+      setProducts([...products, ...data?.products]);
+    } catch (error) {
+      console.log("Error in loading more pages!", error);
+      toast.error("Something went wrong in loading the page!");
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
+
   return (
     <Layout title={"All-Products | Best Offers"}>
       <div className="row mt-3">
@@ -111,11 +172,20 @@ function HomePage() {
               </div>
             ))}
           </Radio.Group>
+          <div className="d-flex flex-column mt-3">
+            <button
+              className="btn btn-danger"
+              onClick={() => window.location.reload()}
+            >
+              Reset-Filters
+            </button>
+          </div>
         </div>
         <div className="col-md-10">
           <h3 className="text-center">All Products</h3>
-          {JSON.stringify(checked, null, 4)}
-          {JSON.stringify(radio, null, 4)}
+          {/* for test purpose only */}
+          {/* {JSON.stringify(checked, null, 4)} 
+          {JSON.stringify(radio, null, 4)} */}
 
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
@@ -142,6 +212,19 @@ function HomePage() {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="m-2 p-2">
+            {products && products.length < total && (
+              <button
+                className="btn btn-warning"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage(page + 1);
+                }}
+              >
+                {loading ? "loading..." : "Load-More"}
+              </button>
+            )}
           </div>
         </div>
       </div>

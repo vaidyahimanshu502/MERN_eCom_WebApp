@@ -292,3 +292,50 @@ module.exports.productFilterController = async (req, res) => {
     });
   }
 };
+
+//Product count
+module.exports.productCount_Controller = async (req, res) => {
+  try {
+    const total = await productModel.find({}).estimatedDocumentCount();
+    return res.status(200).send({
+      success: true,
+      total,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};
+
+//getting prducts per page
+module.exports.productList = async (req, res) => {
+  try {
+    const perPage = 3;
+    const page = req.params.page ? req.params.page : 1;
+    const products = await productModel
+      .find({})
+      .select("-photo")
+      .skip((page - 1) * perPage)
+      .limit(perPage)
+      .sort({ createdAt: -1 });
+    return res.status(200).send({
+      success: true,
+      products,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};

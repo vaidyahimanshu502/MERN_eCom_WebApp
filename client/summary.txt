@@ -1031,6 +1031,19 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                            if (checked.length || radio.length) filterProduct();
                         }, [checked, radio]);
 
+                   7} For reloding filter i have created a button for reload the page
+                      ----   
+                         <div className="d-flex flex-column mt-3">
+                              <button
+                              className="btn btn-danger"
+                              onClick={() => window.location.reload()}
+                              >
+                              Reset-Filters
+                              </button>
+                           </div>
+                 
+              i] Now going to works on paginations-----------
+                1. In server side first created route for counting the products
 
 
              
