@@ -1043,7 +1043,209 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                            </div>
                  
               i] Now going to works on paginations-----------
-                1. In server side first created route for counting the products
+                1. In server side first created route for counting the products and then create controller for it
+                  //Product count
+                     module.exports.productCount_Controller = async (req, res) => {
+                     try {
+                        const total = await productModel.find({}).estimatedDocumentCount();
+                        return res.status(200).send({
+                           success: true,
+                           total,
+                        });
+                     } catch (error) {
+                        let errMsg = error.message;
+                        if (process.env.environment === "production") {
+                           errMsg = "Internal Server message!";
+                        }
+                        return res.status(500).json({
+                           success: false,
+                           message: errMsg,
+                        });
+                     }
+                     };
+
+               j] after this creating logic for getting 3 products per page for this created a controller and 
+                  related route
+                    //getting prducts per page
+                           module.exports.productList = async (req, res) => {
+                           try {
+                              const perPage = 3;
+                              const page = req.params.page ? req.params.page : 1;
+                              const products = await productModel
+                                 .find({})
+                                 .select("-photo")
+                                 .skip((page - 1) * perPage)
+                                 .limit(perPage)
+                                 .sort({ createdAt: -1 });
+                              return res.status(200).send({
+                                 success: true,
+                                 products,
+                              });
+                           } catch (error) {
+                              let errMsg = error.message;
+                              if (process.env.environment === "production") {
+                                 errMsg = "Internal Server message!";
+                              }
+                              return res.status(500).json({
+                                 success: false,
+                                 message: errMsg,
+                              });
+                           }
+                           };
+
+                  k] Now in front-end creating two states for paginations in Home Component also created a state for
+                     loading the page
+                              // states for paginations
+                              const [total, setTotal] = useState(0);
+                              const [page, setPage] = useState(1);
+
+                              // states for loading the page
+                              const [loading, setLoading] = useState(false);
+                  
+                  l] inside getAllProduct method setting loading true see the implementation of this method- 
+                   const getAllProducts = async () => {
+                     try {
+                        // Handling paginations
+                        setLoading(true);
+                        // const { data } = await axios.get(
+                        //   `${process.env.REACT_APP_API}/api/v1/product/get-product`
+                        // );
+
+                        // now
+                        const { data } = await axios.get(
+                        `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+                        );
+                        if (data?.success) {
+                        setLoading(false);
+                        setProducts(data.products);
+                        }
+                     } catch (error) {
+                        setLoading(false);
+                        console.log("Error in getting all producs!");
+                        toast.error("Something went wrong in gett all products!");
+                     }
+                  };
+
+               m] For counting the total number of product calling API from backend
+                  // get total count of products
+                     const getTotal = async () => {
+                        try {
+                           const { data } = await axios.get(
+                           `${process.env.REACT_APP_API}/api/v1/product/product-count`
+                           );
+                           setTotal(data?.total);
+                        } catch (error) {
+                           console.log("error in getting count of total products!");
+                           toast.error("Something went wrong in counting the products!");
+                        }
+                     };
+
+                     useEffect(() => {
+                        getTotal();
+                     }, []);
+
+               n] For loading more products calling API from backend
+                   // load more
+                     const loadMore = async () => {
+                        try {
+                           setLoading(true);
+                           const { data } = await axios.get(
+                           `${process.env.REACT_APP_API}/api/v1/product/product-list/${page}`
+                           );
+                           setLoading(false);
+                           setProducts([...products, ...data?.products]);
+                        } catch (error) {
+                           console.log("Error in loading more pages!", error);
+                           toast.error("Something went wrong in loading the page!");
+                           setLoading(false);
+                        }
+                     };
+
+                     useEffect(() => {
+                        if (page === 1) return;
+                        loadMore();
+                     }, [page]);
+
+*********** Working on Seach based Filter ***************
+     a] For this making a controller at backend and passing mongoDB queries for searching the products by 
+        regex ----
+        //Search product
+            module.exports.search_product = async (req, res) => {
+            try {
+               const { keyword } = req.params;
+               const result = await productModel
+                  .find({
+                  $or: [
+                     { name: { $regex: keyword, $options: "i" } },  //MongoDB queries for searching by keywords
+                     { description: { $regex: keyword, $options: "i" } },
+                  ],
+                  })
+                  .select("-photo");
+               return res.status(200).json({
+                  success: true,
+                  result,
+               });
+            } catch (error) {
+               let errMsg = error.message;
+               if (process.env.environment === "production") {
+                  errMsg = "Internal Server message!";
+               }
+               return res.status(500).json({
+                  success: false,
+                  message: errMsg,
+               });
+            }
+            };
+
+      b] Now creating the context for global state for searching the product and result for this created a file
+         inside of the context named 'Search.js' see
+         --- import { useState, useContext, createContext } from "react";
+
+                     const SearchContext = createContext();
+
+                     const SearchProvider = ({ children }) => {
+                     const [search, setSearch] = useState({
+                        keyword: "",
+                        result: [],
+                     });
+
+                     return (
+                        <SearchContext.Provider value={[search, setSearch]}>
+                           {children}
+                        </SearchContext.Provider>
+                     );
+                     };
+
+                     // creating custom hook
+                     const useSearch = () => useContext(SearchContext);
+
+                     export { useSearch, SearchProvider };
+      c] Finaly importing it inside the index.js and wrapping browser router inside it
+         <AuthProvider>
+            <SearchProvider>
+               <BrowserRouter>
+               <App />
+               </BrowserRouter>
+            </SearchProvider>
+         </AuthProvider>
+
+      d] Creating a Componet for search form inside the Form folder and make it rafce and from bootstrap bringing 
+         search for from nav responsive behaviour.
+          <form className="d-flex" role="search">
+               <input
+                  className="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+               />
+               <button className="btn btn-outline-success" type="submit">
+                  Search
+               </button>
+         </form> and convert it into jsx.
+         
+
+
+
 
 
              

@@ -339,3 +339,31 @@ module.exports.productList = async (req, res) => {
     });
   }
 };
+
+//Search product
+module.exports.search_product = async (req, res) => {
+  try {
+    const { keyword } = req.params;
+    const results = await productModel
+      .find({
+        $or: [
+          { name: { $regex: keyword, $options: "i" } }, //MongoDB queries for searching by keywords
+          { description: { $regex: keyword, $options: "i" } },
+        ],
+      })
+      .select("-photo");
+    return res.status(200).json({
+      success: true,
+      results,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};

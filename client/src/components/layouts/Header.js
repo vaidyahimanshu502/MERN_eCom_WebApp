@@ -4,6 +4,7 @@ import { TbHexagonLetterH } from "react-icons/tb";
 import { RxStitchesLogo } from "react-icons/rx";
 import { useAuth } from "../../context/auth";
 import { toast } from "react-hot-toast";
+import SearchInput from "../Form/SearchInput";
 
 function Header() {
   const [auth, setAuth] = useAuth();
@@ -40,6 +41,7 @@ function Header() {
                 <RxStitchesLogo /> A Beter Choice...
               </p>
             </Link>
+            <SearchInput />
             {/* Shifting all links to the right -- by replacing 'me-auto' with 'ms-auto' class of bootstrap */}
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
