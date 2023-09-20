@@ -32,7 +32,7 @@ const SearchInput = () => {
     }
   };
   return (
-    <div>
+    <div className="search-box">
       <form className="d-flex" role="search" onSubmit={handleSubmit}>
         <input
           className="form-control me-2"

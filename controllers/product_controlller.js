@@ -316,7 +316,7 @@ module.exports.productCount_Controller = async (req, res) => {
 //getting prducts per page
 module.exports.productList = async (req, res) => {
   try {
-    const perPage = 3;
+    const perPage = 4;
     const page = req.params.page ? req.params.page : 1;
     const products = await productModel
       .find({})

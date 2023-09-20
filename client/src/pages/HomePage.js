@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { Checkbox, Radio } from "antd";
 import { prices } from "../components/Prices";
+import { useNavigate } from "react-router-dom";
 
 function HomePage() {
   const [products, setProducts] = useState([]);
@@ -18,6 +19,9 @@ function HomePage() {
 
   // states for loading the page
   const [loading, setLoading] = useState(false);
+
+  // Variable for navigation
+  const navigare = useNavigate();
 
   //Get categories
   const getAllCategory = async () => {
@@ -187,9 +191,13 @@ function HomePage() {
           {/* {JSON.stringify(checked, null, 4)} 
           {JSON.stringify(radio, null, 4)} */}
 
-          <div className="d-flex flex-wrap">
+          <div className="home-card">
             {products?.map((p) => (
-              <div className="card m-2" style={{ width: "18rem" }} key={p._id}>
+              <div
+                className="card m-2 card-custom"
+                style={{ width: "18rem" }}
+                key={p._id}
+              >
                 <img
                   src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
                   className="card-img-top"
@@ -202,7 +210,10 @@ function HomePage() {
                   </p>
                   <h5 className="text-center">Rs.- {p.price} </h5>
                   <div>
-                    <button className="btn btn-primary ms-1">
+                    <button
+                      className="btn btn-primary ms-1"
+                      onClick={() => navigare(`/product/${p.slug}`)}
+                    >
                       More-Details
                     </button>
                     <button className="btn btn-secondary ms-1">
@@ -216,7 +227,7 @@ function HomePage() {
           <div className="m-2 p-2">
             {products && products.length < total && (
               <button
-                className="btn btn-warning"
+                className="btn btn-warning btn-load-more"
                 onClick={(e) => {
                   e.preventDefault();
                   setPage(page + 1);

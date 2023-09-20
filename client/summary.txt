@@ -1242,6 +1242,18 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                   Search
                </button>
          </form> and convert it into jsx.
+
+
+    **************** Going to works on MoreDetails Component ***************
+
+    a] First i have created a page for Showing details of products --- inside pages created a file named -
+       ProductDetails.js and make it rafce and wrap it with layouts.
+    b] Devided it into grids as per requirement and for showing image and details of the product and also 
+       created another container for showing similor products.
+    c] Now calling API for getting a sing product and stored result into state. and also render it inside the 
+       useEffect .
+    d] Now creating h1, h6, h5 and put all details getting from the API inside it. for more info see ProductDetails
+       Componet.
          
 
 
