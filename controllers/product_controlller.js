@@ -367,3 +367,33 @@ module.exports.search_product = async (req, res) => {
     });
   }
 };
+
+//Relative product controller
+module.exports.relativeProduct = async (req, res) => {
+  try {
+    const { pid, cid } = req.params;
+    const products = await productModel
+      .find({
+        category: cid,
+        _id: { $ne: pid }, // removing clicked product from the list of search
+      })
+      .select("-photo")
+      .limit(4)
+      .populate("category");
+
+    return res.status(200).json({
+      success: true,
+      message: "Related products-",
+      products,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};

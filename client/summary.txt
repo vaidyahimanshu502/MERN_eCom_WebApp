@@ -1250,13 +1250,30 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
        ProductDetails.js and make it rafce and wrap it with layouts.
     b] Devided it into grids as per requirement and for showing image and details of the product and also 
        created another container for showing similor products.
-    c] Now calling API for getting a sing product and stored result into state. and also render it inside the 
+    c] Now calling API for getting a single product and stored result into state. and also render it inside the 
        useEffect .
     d] Now creating h1, h6, h5 and put all details getting from the API inside it. for more info see ProductDetails
        Componet.
          
 
+    *************** Now going to works on similor products *****************
 
+    a] For showing similor product In product rotes i have created a route for the related products and also makes 
+       its controller in back-end.
+    b] Now in front-end we need to initialy call this API for showing related products inside the container for
+       this i have created a state for storing searched related products.
+    c] For showing similor product coppying card from Admin -> ProductDetails.js into Product.js <- of Pages and make
+       some changes to it see ProductDetails.js for more info.
+    d] For initial rendering of method getSimmilorProduct I have called it inside of the GetProduct method and giving
+       pid and cid for searching from back-end on the basis of. 
+
+   **************** Now Going to work on Category Component ******************
+
+   a] first of all created a custom hook for getting all categories inside the src > hooks > useCategory see for more
+      details.
+   b] Now inside the Header.js Imported this hook and created a state for storing the categories.
+   c] From bootstrap bringing dropdown from navbar and paste it inside the Header.js instead of Category button
+      see for more info.
 
 
 

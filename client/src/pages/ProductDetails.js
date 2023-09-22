@@ -11,6 +11,7 @@ const ProductDetails = () => {
   // State for holding produc
   const [product, setProduct] = useState({});
   const [category, setCategory] = useState("");
+  const [relatedProducts, setRelatedProducts] = useState([]);
 
   //Function for getting product
   const getProduct = async () => {
@@ -18,9 +19,10 @@ const ProductDetails = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/product/get-single-product/${params.slug}`
       );
-      console.log(data.product);
+      //   console.log(data.product);
       setProduct(data?.product);
       setCategory(data?.product?.category);
+      getSimilorProduct(data?.product._id, data?.product.category._id); // calling function here for givng pid and cid.
       toast.success("More details of product-");
     } catch (error) {
       console.log("Error in geting product!", error);
@@ -32,6 +34,19 @@ const ProductDetails = () => {
   useEffect(() => {
     if (params?.slug) getProduct();
   }, [params.slug]);
+
+  // Get simmilor products
+  const getSimilorProduct = async (pid, cid) => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/related-products/${pid}/${cid}`
+      );
+      setRelatedProducts(data?.products);
+    } catch (error) {
+      console.log("Error in getting simmilor products!", error);
+      toast.error("Something went wron in getting simmilor products!");
+    }
+  };
 
   return (
     <Layout>
@@ -56,7 +71,37 @@ const ProductDetails = () => {
           <button className="btn btn-secondary ms-1">Add-to-Cart</button>
         </div>
       </div>
-      <div className="row container">Similar products</div>
+      <hr />
+      <div className="row container">
+        <div className="col-md-12">
+          <h4 className="text-center">Simmilor Products</h4>
+          {relatedProducts?.length < 1 && (
+            <p className="text-center">No Similor Product Found!</p>
+          )}
+          {/* {JSON.stringify(relatedProducts, null, 4)} */}
+          <div className="d-flex flex-wrap">
+            {relatedProducts?.map((p) => (
+              <div className="card m-2" style={{ width: "18rem" }}>
+                <img
+                  src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                  className="card-img-top"
+                  alt={p.name}
+                />
+                <div className="card-body">
+                  <h5 className="card-title">{p.name}</h5>
+                  <p className="card-text">
+                    {p.description.substring(0, 60)}...
+                  </p>
+                  <h5 className="text-center">Rs.-{p.price}</h5>
+                  <button className="btn btn-secondary ms-1">
+                    Add-to-Cart
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 };
