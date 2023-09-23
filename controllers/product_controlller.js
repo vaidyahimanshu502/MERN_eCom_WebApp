@@ -1,5 +1,6 @@
 const slugify = require("slugify");
 const productModel = require("../models/productModel");
+const categoryModel = require("../models/categoryModel");
 const fs = require("fs");
 
 // Controller for Creating Product
@@ -384,6 +385,29 @@ module.exports.relativeProduct = async (req, res) => {
     return res.status(200).json({
       success: true,
       message: "Related products-",
+      products,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};
+
+// Getting product category Wise
+module.exports.categoryProduct = async (req, res) => {
+  try {
+    const category = await categoryModel.findOne({ slug: req.params.slug });
+    const products = await productModel.find({ category }).populate("category");
+    return res.status(200).json({
+      success: true,
+      message: "Products list by category-",
+      category,
       products,
     });
   } catch (error) {

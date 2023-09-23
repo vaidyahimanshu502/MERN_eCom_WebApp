@@ -66,8 +66,8 @@ function Header() {
                     </Link>
                   </li>
                   {categories?.map((c) => (
-                    <li>
-                      {console.log(c.slug)}
+                    <li key={c._id}>
+                      {/* {console.log(c.slug)} */}
                       <Link
                         to={`/category/${c.slug}`}
                         className="dropdown-item"

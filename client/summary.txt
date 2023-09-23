@@ -1275,6 +1275,11 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
    c] From bootstrap bringing dropdown from navbar and paste it inside the Header.js instead of Category button
       see for more info.
 
+   d]Now creating Categories.js for shoping all categories see for more info.
+   e] In backend created a controller and router for getting products by category.
+   f] For shoping products by category i have created another Component and make it rafce and also wrap it with
+      Layout. and calling Api and showing products see for more info.
+
 
 
              
