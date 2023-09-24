@@ -62,40 +62,36 @@
   font-weight: 900;
   font-family: "roboto", sans-serif;
   letter-spacing: 4px;
-  color: rgba(251, 251, 245, 0.979);
+  color: rgba(255, 4, 4, 0.979);
   text-transform: none;
   font-style: italic;
 }
 
-
-
 /* Define the animation named "flicker" */
 @keyframes flicker {
-    /* Initial state of animation */
-    0%, 
+  /* Initial state of animation */
+  0%, 
     /* Final state of animation */
-    100% { 
-        text-shadow: 
-            0 1px 3px #fff, /* Innermost layer - intense heat (white) */
-            0 2px 6px #FF3, /* Second layer - core of flame (yellow) */
-            0 6px 12px #F90, /* Middle layer - body of flame (orange) */
-            0 10px 20px #C33; /* Outermost layer - edges of flame (red) */
-    }
-    /* Middle state of animation */
-    50% { 
-        text-shadow: 
-            0 -2px 6px #fff, /* Innermost layer - intense heat (white) */
-            0 -4px 12px #FF3, /* Second layer - core of flame (yellow) */
-            0 -8px 16px #F90, /* Middle layer - body of flame (orange) */
-            0 -12px 24px #C33; /* Outermost layer - edges of flame (red) */
-    }
+    100% {
+    text-shadow: 0 1px 3px #fff,
+      /* Innermost layer - intense heat (white) */ 0 -2px 6px #ff3,
+      /* Second layer - core of flame (yellow) */ 0 -6px 12px #f90,
+      /* Middle layer - body of flame (orange) */ 0 -10px 20px #c33; /* Outermost layer - edges of flame (red) */
+  }
+  /* Middle state of animation */
+  50% {
+    text-shadow: 0 -2px 6px #fff,
+      /* Innermost layer - intense heat (white) */ 0 -4px 12px #ff3,
+      /* Second layer - core of flame (yellow) */ 0 -8px 16px #f90,
+      /* Middle layer - body of flame (orange) */ 0 -12px 24px #c33; /* Outermost layer - edges of flame (red) */
+  }
 }
- 
+
 .fire {
-    /* Apply the "flicker" animation to the .fire class */
-    animation: flicker 2s infinite;
+  /* Apply the "flicker" animation to the .fire class */
+  animation: flicker 2s infinite;
 }
-.navbar-brand:hover {
+.navbar-brand {
   background-color: white;
   color: rgb(41, 11, 235);
   border-radius: 12px;
@@ -302,4 +298,23 @@
   margin-top: 10px;
   /* margin: 0 auto; */
   margin-left: 30rem;
+}
+
+/****************Cart********************/
+.nav-link .cart-icon {
+  color: rgb(223, 223, 59) !important;
+  font-weight: 800 !important;
+  background: black;
+  border-radius: 3px;
+  font-size: 20px;
+}
+.cart-link h4{
+  color: rgba(249, 248, 245, 0.902);
+  background: rgb(231, 27, 27);
+  border-radius: 50%;
+  margin-top: -28px;
+  margin-left: 20px;
+  font-size: 12px;
+  /* font-weight: 900 !important; */
+  padding: 3px;
 }

@@ -61,6 +61,19 @@ const CategoryProducts = () => {
             </div>
           ))}
         </div>
+        {/* <div className="m-2 p-2">
+            {products && products.length < total && (
+              <button
+                className="btn btn-warning btn-load-more"
+                onClick={(e) => {
+                  e.preventDefault();
+                  setPage(page + 1);
+                }}
+              >
+                {loading ? "loading..." : "Load-More"}
+              </button>
+            )}
+          </div> */}
       </div>
     </Layout>
   );

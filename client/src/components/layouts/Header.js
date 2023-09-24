@@ -6,10 +6,16 @@ import { useAuth } from "../../context/auth";
 import { toast } from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
+import { useCart } from "../../context/Cart";
+import { FaOpencart } from "react-icons/fa";
 
 function Header() {
   const [auth, setAuth] = useAuth();
   const categories = useCategory();
+
+  //state for cart
+  const [cart] = useCart([]);
+
   //handling functionality of LogOut
   const handleLogOut = () => {
     setAuth({
@@ -138,8 +144,8 @@ function Header() {
                 </>
               )}
               <li className="nav-item">
-                <NavLink to="/cart" className="nav-link">
-                  Cart {0}
+                <NavLink to="/cart" className="nav-link cart-link">
+                  <FaOpencart className="cart-icon" /> <h4>{cart?.length}</h4>
                 </NavLink>
               </li>
             </ul>

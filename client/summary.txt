@@ -1281,6 +1281,13 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
       Layout. and calling Api and showing products see for more info.
 
 
+***************** Going to works on cart ******************
+   a] First of all I am desiging my cart button see the index.css for more detils.
+   b] Created a global Context for cart-items see the Cart.js file of context folder for more info.
+   c] In app.js I have importe CartProvider from Cart.js and wrap the BrowserRouter inside it to use it globaly.
+   d] After that I have importing useCart inside the Header.js and implemented logics see for more info.
+   e] For Cart creating a new page CartPage.js inside the page folder and implemented logics see for more info.
+
 
              
 
