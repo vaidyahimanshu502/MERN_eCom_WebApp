@@ -1,7 +1,19 @@
 # MERN-Full-Stack-Ecom-WebApp
-# Currentaly Working on this Project
-# Basic Set-Up *****************************
 
+# Tech-Stacks Used
+  1] JavaScript as a Scripting Language.
+
+  2] Bootstrap for implementing some basic designs.
+
+  3] NodeJs For backend technology.
+
+  4] ReactJs For front-end technology
+
+  5] MongoDB for Database Managegement.
+
+  6 ] ExpressJs For creating Server
+
+# Basic Set-Up 
 
 step 1:- create-react-app client.
 
@@ -15,13 +27,19 @@ atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
                                 ************ END *****************
+# Sources
+
+  1] Inspired by Flipcart, Mesho, Amazon
+
+  2] Searching from google while stuck to implement any functionalitie mostaly -- Stack Over Flow and GitHub.
+
 # Home Page View
 ![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/f38287e6-03fc-4f13-b449-fc325c426e8e)
 
 
 
 
-# Creating Our Layout ********************
+# Creating Our Layout 
 
 
 step 6:- creating component folder inside the src and inside the components created theree files
