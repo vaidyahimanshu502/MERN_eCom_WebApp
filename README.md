@@ -1,7 +1,19 @@
 # MERN-Full-Stack-Ecom-WebApp
-# Currentaly Working on this Project
-# Basic Set-Up *****************************
 
+# Tech-Stacks Used
+  1] JavaScript as a Scripting Language.
+
+  2] Bootstrap for implementing some basic designs.
+
+  3] NodeJs For backend technology.
+
+  4] ReactJs For front-end technology
+
+  5] MongoDB for Database Managegement.
+
+  6 ] ExpressJs For creating Server
+
+# Basic Set-Up 
 
 step 1:- create-react-app client.
 
@@ -15,13 +27,19 @@ atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
                                 ************ END *****************
+# Sources
+
+  1] Inspired by Flipcart, Mesho, Amazon
+
+  2] Searching from google while stuck to implement any functionalitie mostaly -- Stack Over Flow and GitHub.
+
 # Home Page View
 ![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/f38287e6-03fc-4f13-b449-fc325c426e8e)
 
 
 
 
-# Creating Our Layout ********************
+# Creating Our Layout 
 
 
 step 6:- creating component folder inside the src and inside the components created theree files
@@ -878,9 +896,282 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
 
 
-# Working on Product's CRUD [Front-End]  **********************
+
+# Working on Product's CRUD [Front-End]  *****
 
    Step 38:- Working on Products ---------------------
+
+    a] Go to createProduct.js and create states for multiple fields see for more info.
+    
+           b] After that creating getAllCategory metthod for getting categories and importing axios and toast also.
+           
+           c] Also creating useEffect for initial life cycle.
+           
+           d] Now going to create Dropdown from antd so we have to import antd and destructure Option from Select.
+           
+           e] In return statement creating a div with className m-1 and inside it using Select and Option like
+           
+               <div className="div m-1 w-75">
+               
+                  <Select
+                  
+                     bordered={false}
+                     
+                     placeholder="Select a Category"
+                     
+                     size="large"
+                     
+                     showSearch
+                     
+                     className="form-select mb-3"
+                     
+                     // onChange={(value) => {
+                     
+                     //   setCategories(value);
+                     
+                     // }}
+                     
+                     onChange={(value) => {
+                     
+                        setCategory(value); // Update the correct state variable
+                        
+                     }}
+                     
+                  >
+                  
+                     {categories?.map((category) => {
+                     
+                        // console.log(categories);
+                        
+                        return (
+                        
+                        <Option key={category._id} value={category.name}>
+                        
+                           {category.name}
+                           
+                        </Option>
+                        
+                        );
+                        
+                     })}
+                     
+                  </Select>
+                  
+              </div>
+              
+              It will show a dropdown to select the category from categories.
+              
+            f] Now working on geting images for this i have created a div with className mb-3 and inside it performing
+               some actions see the below code----
+               
+                   {/* For uploading photo */}
+                   
+              <div className="mb-3">
+              
+                <label className="btn btn-outline-secondary col-md-12">
+                
+                  {photo ? photo.name : "Upload Photo"}
+                  
+                  <input
+
+                    type="file"
+                    
+                    name="photo"
+                    
+                    accept="image/*"
+                    
+                    onChange={(e) => {
+                    
+                      setPhoto(e.target.files[0]);
+                      
+                    }}
+                    
+                    hidden
+                    
+                  />
+                  
+                </label>
+                
+              </div>
+              
+            g] Now for getting preview using browser's URL see the bllow code-----
+            
+                {/* for setting preview */}
+                
+              <div className="mb-3">
+              
+                {photo && (
+                
+                  <div className="text-center">
+                  
+                    <img
+                    
+                      src={URL.createObjectURL(photo)} // getting photo from URL
+
+                      alt="product-photo"
+                      
+                      height={"200px"}
+                      
+                      className="img img-responsive"
+                      
+                    />
+                    
+                  </div>
+                  
+                )}
+                
+              </div>
+              
+            h] Now going to work on different fields see the bellow code-----
+
+                 {/* For taking more fields */}
+                 
+                     <div className="mb-3">
+                     
+                        <input
+                        
+                           type="text"
+                           
+                           value={name}
+                           
+                           placeholder="Write a name"
+                           
+                           className="form-control"
+                           
+                           onChange={(e) => {
+                           
+                           setName(e.target.value);
+                           
+                           }}
+                           
+                        />
+                        
+                     </div>
+                     
+                     <div className="mb-3">
+                     
+                        <textarea
+                        
+                           type="text"
+                           
+                           value={description}
+                           
+                           placeholder="Write Description"
+                           
+                           className="form-control"
+                           
+                           onChange={(e) => {
+                           
+                           setDescription(e.target.value);
+                           
+                           }}
+                           
+                        />
+                        
+                     </div>
+                     
+                     <div className="mb-3">
+                     
+                        <input
+                        
+                           type="number"
+                           
+                           value={price}
+                           
+                           placeholder="Write a price"
+                           
+                           className="form-control"
+                           
+                           onChange={(e) => {
+                           
+                           setPrice(e.target.value);
+                           
+                           }}
+                           
+                        />
+                        
+                     </div>
+                     
+                     <div className="mb-3">
+                     
+                        <input
+                        
+                           type="number"
+                           
+                           value={quantity}
+                           
+                           placeholder="Write Quantiy"
+                           
+                           className="form-control"
+                           
+                           onChange={(e) => {
+                           
+                           setQuantiy(e.target.value);
+                           
+                           }}
+                           
+                        />
+                        
+                     </div>
+                     
+                     <Select
+                     
+                        bordered={false}
+                        
+                        placeholder="Select a Shipping"
+                        
+                        size="large"
+                        
+                        showSearch
+                        
+                        className="form-select mb-3"
+                        
+                        // onChange={(value) => {
+                        
+                        //   setCategories(value);
+                        
+                        // }}
+                        
+                        onChange={(value) => {
+                        
+                           setShipping(value); // Update the correct state variable
+                           
+                        }}
+                        
+                     >
+                     
+                        <>
+                        
+                           <Option value="0">No</Option>
+                           
+                           <Option value="1">Yes</Option>
+                           
+                        </>
+                        
+                     </Select>
+                     
+                     </div>
+
+
+
+          ************ We have to include onClick={handleCreate} in buttons ************
+
+
+
+          ************ We have to include onClick={handleCreate} in buttons ************
+
+                     <div className="mb-3">
+                     
+                     <button className="btn btn-primary">Create-Product</button>
+                     
+                     </div>
+
+                   a] Now creating a method in createProduct component 'handleCreate' first i have handled
+                      preventDefault behaviour of form, after that creating instance [OBJECT] of FormData and
+                      appended all incoming fields like photo, name , category. price etc.
+                      
+                   b] In this method I have called axios request and pass the form fields to the API endPoints
+                      for more info please visit CreateProduct Page.
 
 
 
