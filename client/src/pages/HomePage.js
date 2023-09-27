@@ -224,6 +224,11 @@ function HomePage() {
                       className="btn btn-secondary ms-1"
                       onClick={() => {
                         setCart([...cart, p]);
+                        // Storing items into localstorage
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
                         toast.success(`${p.name} is added to cart!`);
                       }}
                     >

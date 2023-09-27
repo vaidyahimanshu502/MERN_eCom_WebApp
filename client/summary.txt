@@ -1287,6 +1287,46 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
    c] In app.js I have importe CartProvider from Cart.js and wrap the BrowserRouter inside it to use it globaly.
    d] After that I have importing useCart inside the Header.js and implemented logics see for more info.
    e] For Cart creating a new page CartPage.js inside the page folder and implemented logics see for more info.
+   f] Now for displaying our cart items I have dividing our Page further into two divs one for showing images and
+      other for displaying details and remove buttons see the Page for more info.
+   g] After it creating removeCartItem method for removing items from the cart dee for more info.
+   h] For storing it into localstorage in HomePage Component implementing logic into Add-to-cart button
+                     localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+   i] For permanantaly store items into cart also implemented logic in Context - Cart.js
+        
+         useEffect(() => {
+            let existingItems = localStorage.getItem("cart");
+            if (existingItems) setCart(JSON.parse(existingItems));
+         }, []);
+   j] For removing item from the localstorage implemented logic inside the removeCartItem method
+      //removing from localStorage
+      localStorage.setItem("cart", JSON.stringify(myCart));
+
+   k] For showing total price of the cart I have implemented a method totalPrice and implemented logics for 
+      calculating total price.
+
+       const totalPrice = () => {
+         try {
+            let total = 0;
+            cart?.map((item) => {
+            const itemPrice = parseFloat(item.price);
+            if (!isNaN(itemPrice)) {
+               total += itemPrice;
+            }
+            });
+            return total.toLocaleString("en-IN", {
+            style: "currency",
+            currency: "INR",
+            });
+         } catch (error) {
+            console.log("Error in calculating total!", error);
+         }
+      };
+
+      and calling this method into the tag of Total  <h4>Total : {totalPrice()} </h4>
 
 
              
