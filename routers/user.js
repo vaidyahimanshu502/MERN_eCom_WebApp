@@ -4,6 +4,7 @@ const {
   loginController,
   testController,
   forgotPasswordController,
+  updateProfile,
 } = require("../controllers/user_controller");
 const { checkAuthentication } = require("../middlewares/jwt_middleware");
 const { isAdmin } = require("../middlewares/check_Admin");
@@ -37,5 +38,8 @@ router.get("/admin-auth", checkAuthentication, isAdmin, (req, res) => {
 
 //Test Routes for JWT
 router.get("/test", checkAuthentication, isAdmin, testController);
+
+//update profile
+router.put("/update-profile", checkAuthentication, updateProfile);
 
 module.exports = router;

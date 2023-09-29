@@ -196,3 +196,50 @@ module.exports.testController = (req, res) => {
     });
   }
 };
+
+//Update profile
+module.exports.updateProfile = async (req, res) => {
+  try {
+    const { name, email, password, phone, address } = req.body;
+    const user = await UserModel.findOne({ email });
+    // console.log("Finded User ====", user)
+
+    if (password && password.length < 6) {
+      return res.status(400).json({
+        success: false,
+        error: "Password is required and 6 characters long!",
+      });
+    }
+
+    const hashedPassword = password
+      ? await createHashPassword(password)
+      : undefined;
+
+    const updatedUser = await UserModel.findByIdAndUpdate(
+      user._id,
+      {
+        name: name || user.name,
+        password: hashedPassword || user.password,
+        phone: phone || user.phone,
+        address: address || user.address,
+      },
+      { new: true }
+    );
+    user.save();
+    // console.log("Updated user ", updatedUser)
+    return res.status(200).json({
+      success: true,
+      message: "Profile Updated SuccessFully!",
+      updatedUser,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};

@@ -1329,5 +1329,11 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
       and calling this method into the tag of Total  <h4>Total : {totalPrice()} </h4>
 
 
-             
+   ********* Working On User's DashBoard for updating user's info *************
+   a] imported required files and dependencies inside the Profile page of user see for more info.
+   b] creating states for storing initial info of user .
+   c] created handleSubmit method for submiting the new info of user for this, I have created routes and 
+      controller in backed.
+   d] After that by using this route calling API from frontend inside the handleSubmit method. see for more info.
+   e] Copying form from SignUp.js and makes some changes see for more info.
 
