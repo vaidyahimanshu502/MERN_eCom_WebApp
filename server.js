@@ -36,7 +36,7 @@ app.get("/", (req, res) => {
 });
 
 // PORT on which app is running
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 8000;
 
 //listening our port
 app.listen(port, () => {

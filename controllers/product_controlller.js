@@ -2,6 +2,42 @@ const slugify = require("slugify");
 const productModel = require("../models/productModel");
 const categoryModel = require("../models/categoryModel");
 const fs = require("fs");
+const braintree = require("braintree");
+
+//Payment Getway
+var gateway = new braintree.BraintreeGateway({
+  environment: braintree.Environment.Sandbox,
+  merchantId: "kgytfjjgdd4rx7vv",
+  publicKey: "ks6h6xtdvh6ct6vc",
+  privateKey: "4affac36a240b5243ea37688b2edf195",
+});
+console.log("Public key = ", process.env.BRAINTREE_PUBLIC_KEY);
+
+//Braintree token controller
+module.exports.braintreeTokenController = async (req, res) => {
+  try {
+    gateway.clientToken.generate({}, function (err, response) {
+      if (err) {
+        return res.status(500).json({
+          success: false,
+          err,
+        });
+      } else {
+        return res.send(response);
+      }
+    });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+//Braintree payment controller
+module.exports.braintreePaymentsController = async (req, res) => {
+  try {
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 // Controller for Creating Product
 module.exports.createProduct = async (req, res) => {

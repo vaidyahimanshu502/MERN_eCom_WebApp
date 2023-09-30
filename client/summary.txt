@@ -1337,3 +1337,21 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
    d] After that by using this route calling API from frontend inside the handleSubmit method. see for more info.
    e] Copying form from SignUp.js and makes some changes see for more info.
 
+   ******** Working on CartPage Component for the Check out Functionality **********
+
+   a] For this first i have implemented logics for updating address in CartPage Component by using turnary
+      Operator see for the more info ---- CartPage.js
+   b] Now Going to implement payment getway by using BrainTree--
+      1] Go to Braintree homepage and click on login button here you got signup option by clicking signup
+         create your account and submit.
+      2] they will send a mail where you find a button to activate your account after activation try to login
+         with your username and password.
+      3] After log in click on setting icon and click on processing and now search in google ---
+         Paypal Developers account [This is authentication of paypal]
+      4] I have just added dummy clientId, email and client secret for the paypal link in proccessing 
+         by cliking link button.
+      5] Now go to froud management and click on CVV and click on option and enable CVV does not match.
+      6] Now come to home page and scroll down and copy paste all credentials like MERCHANT_ID, PUBLIC_KEY
+         and PRIVATE_KEY and make them environment variable.
+      7] Now for enabling Payment Getway in my App install the 'npm i braintree' inside the node server. and 
+        'npm i braintree-web-drop-in-react' inside the react server
