@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Layout from "../components/layouts/Layout";
 import { useCart } from "../context/Cart";
 import { useAuth } from "../context/auth";
-import { useNavigate } from "react-router-dom";
+import { Await, useNavigate } from "react-router-dom";
+
+import DropIn from "braintree-web-drop-in-react";
+import axios from "axios";
 
 const CartPage = () => {
   const [cart, setCart] = useCart([]);
   const [auth, setAuth] = useAuth("");
   const navigate = useNavigate();
+
+  // States for BrainTree
+  const [clientToken, setClientToken] = useState("");
+  const [instance, setInstance] = useState("");
+  const [loading, setLoading] = useState(false);
+  console.log("Instance of ----", instance);
+  // console.log("Cart Items ", cart)
+  // console.log("Client Token--", clientToken)
 
   //Method for removing item
   const removeCartItem = (pid) => {
@@ -39,6 +50,44 @@ const CartPage = () => {
       });
     } catch (error) {
       console.log("Error in calculating total!", error);
+    }
+  };
+
+  // Getting payment getway Token
+  const getToken = async () => {
+    try {
+      const { data } = await axios.get(
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/token`
+      );
+      setClientToken(data?.clientToken); // clientToken comes from API don't confuse with state's clientToken
+    } catch (error) {
+      console.log("Error in geting payment token ", error);
+    }
+  };
+
+  // initialy getting token
+  useEffect(() => {
+    getToken();
+  }, [auth?.token]);
+
+  // handle payments
+  const handlePayment = async () => {
+    try {
+      setLoading(true)
+      const { nonce } = await instance.requestPaymentMethod();
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
+        {
+          nonce,
+          cart,
+        }
+      );
+      setLoading(false)
+      localStorage.removeItem('cart')
+      setCart([])
+      navigate('')
+    } catch (error) {
+      console.log("Error in making payment", error);
     }
   };
   return (
@@ -128,6 +177,27 @@ const CartPage = () => {
                 )}
               </div>
             )}
+            <div className="mt-2">
+              <DropIn
+                options={{
+                  authorization: clientToken,
+                  paypal: {
+                    flow: "vault",
+                  },
+                }}
+                onInstance={(newInstance) => {
+                  console.log("Instance is set:", newInstance);
+                  setInstance(newInstance);
+                }}
+              />
+              <button
+                className="btn btn-primary"
+                onClick={handlePayment}
+                disabled={loading || !instance || !auth?.user?.address}
+              >
+                Make-payment
+              </button>
+            </div>
           </div>
         </div>
       </div>

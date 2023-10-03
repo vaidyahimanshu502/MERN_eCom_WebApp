@@ -1,15 +1,16 @@
 const slugify = require("slugify");
 const productModel = require("../models/productModel");
 const categoryModel = require("../models/categoryModel");
+const orderModel = require("../models/orderModel");
 const fs = require("fs");
 const braintree = require("braintree");
 
 //Payment Getway
 var gateway = new braintree.BraintreeGateway({
   environment: braintree.Environment.Sandbox,
-  merchantId: "kgytfjjgdd4rx7vv",
-  publicKey: "ks6h6xtdvh6ct6vc",
-  privateKey: "4affac36a240b5243ea37688b2edf195",
+  merchantId: process.env.MERCHANT_ID,
+  publicKey: process.env.PUBLIC_KEY,
+  privateKey: process.env.PRIVATE_KEY,
 });
 console.log("Public key = ", process.env.BRAINTREE_PUBLIC_KEY);
 
@@ -34,6 +35,32 @@ module.exports.braintreeTokenController = async (req, res) => {
 //Braintree payment controller
 module.exports.braintreePaymentsController = async (req, res) => {
   try {
+    const { cart, nonce } = req.body; // nonce is the name provided by the documentation of Braintree.
+    let total = 0;
+    cart.map((i) => {
+      total += i.price;
+    });
+    let newTransaction = gateway.transaction.sale(
+      {
+        amount: total,
+        paymentMethodNonce: nonce,
+        options: {
+          submitForSettlement: true,
+        },
+      },
+      function (error, result) {
+        if (result) {
+          const order = new orderModel({
+            products: cart,
+            payment: result,
+            buyer: req.user._id,
+          }).save();
+          return res.json({ ok: true });
+        } else {
+          return res.status(500).send(error);
+        }
+      }
+    );
   } catch (error) {
     console.log(error);
   }

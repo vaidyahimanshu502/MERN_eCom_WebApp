@@ -1,4 +1,7 @@
 const express = require("express");
+//configure dotenv
+require("dotenv").config();
+
 const colors = require("colors"); // For setting colorfull terminals
 const morgan = require("morgan"); // For showing APIs requests in console
 const { connectMongo } = require("./config/db");
@@ -8,8 +11,6 @@ const productsRouter = require("./routers/products");
 const cors = require("cors");
 const formidable = require("express-formidable");
 
-//configure dotenv
-require("dotenv").config();
 
 //configure database
 connectMongo();
@@ -37,6 +38,8 @@ app.get("/", (req, res) => {
 
 // PORT on which app is running
 const port = process.env.PORT || 8000;
+
+console.log(process.env.MERCHANT_ID);
 
 //listening our port
 app.listen(port, () => {
