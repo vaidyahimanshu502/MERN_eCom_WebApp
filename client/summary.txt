@@ -1362,4 +1362,10 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
       1] Inside user route creating a route for getting orders from Database and also Created
          controller for this see the userController.js for more info.
-      2] now inside the 
+      2] now inside the Order.js created states for orders and auth and imported necessary hooks
+         see for more info.
+      3] created custom method for getting all orders from the db and calling API see for more info.
+      4] Now in return statement bringing a table from the bootstrap and showing datas.
+      5] for showing dates and time of order and etc installing 'npm i moment'
+      6] I have successfuly shown orders made by user apart from this I have also shown the
+         products info of ordered product see for more info.

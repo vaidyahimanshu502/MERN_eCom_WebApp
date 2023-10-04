@@ -10,14 +10,14 @@ import toast from "react-hot-toast";
 
 const CartPage = () => {
   const [cart, setCart] = useCart([]);
-  const [auth, setAuth] = useAuth("");
+  const [auth] = useAuth("");
   const navigate = useNavigate();
 
   // States for BrainTree
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");
   const [loading, setLoading] = useState(false);
-  console.log("Instance of ----", instance);
+  // console.log("Instance of ----", instance);
   // console.log("Cart Items ", cart)
   // console.log("Client Token--", clientToken)
 
@@ -60,7 +60,7 @@ const CartPage = () => {
       const { data } = await axios.get(
         `${process.env.REACT_APP_API}/api/v1/product/braintree/token`
       );
-      console.log("Client Token = ", data?.clientToken)
+      console.log("Client Token = ", data?.clientToken);
       setClientToken(data?.clientToken); // clientToken comes from API don't confuse with state's clientToken
     } catch (error) {
       console.log("Error in geting payment token ", error);
@@ -77,11 +77,13 @@ const CartPage = () => {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
+      const userId = auth?.user?._id;
       const { data } = await axios.post(
         `${process.env.REACT_APP_API}/api/v1/product/braintree/payment`,
         {
           nonce,
           cart,
+          userId,
         }
       );
       setLoading(false);
@@ -182,7 +184,7 @@ const CartPage = () => {
               </div>
             )}
             <div className="mt-2">
-              {!clientToken || !cart?.length ? (
+              {!clientToken || !auth?.token || !cart?.length ? (
                 " "
               ) : (
                 <>
@@ -194,7 +196,7 @@ const CartPage = () => {
                       },
                     }}
                     onInstance={(newInstance) => {
-                      console.log("Instance is set:", newInstance);
+                      // console.log("Instance is set:", newInstance);
                       setInstance(newInstance);
                     }}
                   />
