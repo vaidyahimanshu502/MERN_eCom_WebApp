@@ -1,6 +1,7 @@
 const { createHashPassword, comparePassword } = require("../helpers/bcrypt");
 const UserModel = require("../models/userModel");
 const jwt = require("jsonwebtoken");
+const orderModel = require("../models/orderModel");
 
 module.exports.registerController = async (req, res) => {
   try {
@@ -231,6 +232,28 @@ module.exports.updateProfile = async (req, res) => {
       success: true,
       message: "Profile Updated SuccessFully!",
       updatedUser,
+    });
+  } catch (error) {
+    let errMsg = error.message;
+    if (process.env.environment === "production") {
+      errMsg = "Internal Server message!";
+    }
+    return res.status(500).json({
+      success: false,
+      message: errMsg,
+    });
+  }
+};
+
+// Getting orders
+module.exports.getOrders = async (req, res) => {
+  try {
+    const orders = await orderModel
+      .find({ buyer: req.user._id })
+      .populate("products", "-photo")
+      .populate("buyer", "name");
+    return res.status(200).json({
+      orders,
     });
   } catch (error) {
     let errMsg = error.message;

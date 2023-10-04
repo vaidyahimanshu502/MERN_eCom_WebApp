@@ -1355,3 +1355,11 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
          and PRIVATE_KEY and make them environment variable.
       7] Now for enabling Payment Getway in my App install the 'npm i braintree' inside the node server. and 
         'npm i braintree-web-drop-in-react' inside the react server
+
+        sometimes it took some time to load DropIn so please wait till not loaded.
+
+*********** Now working on Orders Component of user DashBoard ************
+
+      1] Inside user route creating a route for getting orders from Database and also Created
+         controller for this see the userController.js for more info.
+      2] now inside the 
