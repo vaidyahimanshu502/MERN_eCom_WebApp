@@ -44,6 +44,6 @@ router.get("/test", checkAuthentication, isAdmin, testController);
 router.put("/update-profile", checkAuthentication, updateProfile);
 
 // Orders
-router.get("/orders", checkAuthentication, getOrders);
+router.get("/orders/:userId", checkAuthentication, getOrders);
 
 module.exports = router;

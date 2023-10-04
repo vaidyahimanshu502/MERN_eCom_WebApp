@@ -12,7 +12,7 @@ var gateway = new braintree.BraintreeGateway({
   publicKey: process.env.PUBLIC_KEY,
   privateKey: process.env.PRIVATE_KEY,
 });
-console.log("Public key = ", process.env.BRAINTREE_PUBLIC_KEY);
+// console.log("Public key = ", process.env.BRAINTREE_PUBLIC_KEY);
 
 //Braintree token controller
 module.exports.braintreeTokenController = async (req, res) => {
@@ -35,7 +35,7 @@ module.exports.braintreeTokenController = async (req, res) => {
 //Braintree payment controller
 module.exports.braintreePaymentsController = async (req, res) => {
   try {
-    const { cart, nonce } = req.body; // nonce is the name provided by the documentation of Braintree.
+    const { cart, nonce, userId } = req.body; // nonce is the name provided by the documentation of Braintree.
     let total = 0;
     cart.map((i) => {
       total += i.price;
@@ -49,11 +49,12 @@ module.exports.braintreePaymentsController = async (req, res) => {
         },
       },
       function (error, result) {
+        console.log(userId);
         if (result) {
           const order = new orderModel({
             products: cart,
             payment: result,
-            buyer: req.user._id,
+            buyer: userId,
           }).save();
           return res.json({ ok: true });
         } else {

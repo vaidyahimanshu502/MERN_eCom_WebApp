@@ -248,8 +248,10 @@ module.exports.updateProfile = async (req, res) => {
 // Getting orders
 module.exports.getOrders = async (req, res) => {
   try {
+    const { userId } = req.params;
+    console.log("UserId = ", userId);
     const orders = await orderModel
-      .find({ buyer: req.user._id })
+      .find({ buyer: userId })
       .populate("products", "-photo")
       .populate("buyer", "name");
     return res.status(200).json({
