@@ -6,6 +6,8 @@ const {
   forgotPasswordController,
   updateProfile,
   getOrders,
+  getAllOrders,
+  changOrderStatus,
 } = require("../controllers/user_controller");
 const { checkAuthentication } = require("../middlewares/jwt_middleware");
 const { isAdmin } = require("../middlewares/check_Admin");
@@ -45,5 +47,11 @@ router.put("/update-profile", checkAuthentication, updateProfile);
 
 // Orders
 router.get("/orders/:userId", checkAuthentication, getOrders);
+
+// All Orders
+router.get("/all-orders", checkAuthentication, isAdmin, getAllOrders);
+
+// Order Status Updates
+router.put("/order-status/:orderId", checkAuthentication, isAdmin, changOrderStatus);
 
 module.exports = router;

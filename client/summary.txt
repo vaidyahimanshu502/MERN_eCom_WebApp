@@ -1369,3 +1369,10 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
       5] for showing dates and time of order and etc installing 'npm i moment'
       6] I have successfuly shown orders made by user apart from this I have also shown the
          products info of ordered product see for more info.
+
+************** Now working on Admin Orders ***************
+     
+      1] Inside admin folser created a new page AdminOrders.js
+      2] For changing status and getting all orders from the DB created states and custom methods
+         at backend and front-end both.
+             For more info go and see the AdminOrders.js.
