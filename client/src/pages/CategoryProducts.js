@@ -26,40 +26,45 @@ const CategoryProducts = () => {
   }, [params?.slug]);
 
   return (
-    <Layout title={"CategoryWise-Products"}>
-      <div className="container">
-        <h1 className="text-center mt-3">Category : {category?.name}</h1>
-        <h4 className="text-center mt-3">Result-Found : {products?.length}</h4>
-        <div className="home-card">
-          {products?.map((p) => (
-            <div
-              className="card m-2 card-custom"
-              style={{ width: "18rem" }}
-              key={p._id}
-            >
-              <img
-                src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                className="card-img-top"
-                alt={p.name}
-              />
-              <div className="card-body">
-                <h5 className="card-title">{p.name}</h5>
-                <p className="card-text">{p.description.substring(0, 30)}...</p>
-                <h5 className="text-center">Rs.- {p.price} </h5>
-                <div>
-                  <button
-                    className="btn btn-primary ms-1"
-                    onClick={() => navigare(`/product/${p.slug}`)}
-                  >
-                    More-Details
-                  </button>
-                  <button className="btn btn-secondary ms-1">
-                    Add-to-Cart
-                  </button>
+    <Layout title={"Category-Wise | Products"}>
+      <div className="container mt-3 category">
+        <h4 className="text-center mt-3">Category : {category?.name}</h4>
+        <h6 className="text-center mt-3">Result-Found : {products?.length}</h6>
+        <div className="row">
+          <div className="col-md-9 offset-1">
+            <div className="d-flex flex-wrap">
+              {products?.map((p) => (
+                <div className="card m-2 card-custom" key={p._id}>
+                  <img
+                    src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                  />
+                  <div className="card-body">
+                    <div className="card-name-price">
+                      <h5 className="card-title">{p.name}</h5>
+                      <h5 className="text-center card-price">Rs.- {p.price} </h5>
+                    </div>
+
+                    <p className="card-text">
+                      {p.description.substring(0, 30)}...
+                    </p>
+                    <div className="card-name-price">
+                      <button
+                        className="btn btn-info ms-1"
+                        onClick={() => navigare(`/product/${p.slug}`)}
+                      >
+                        More-Details
+                      </button>
+                      <button className="btn btn-secondary ms-1">
+                        Add-to-Cart
+                      </button>
+                    </div>
+                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
         {/* <div className="m-2 p-2">
             {products && products.length < total && (

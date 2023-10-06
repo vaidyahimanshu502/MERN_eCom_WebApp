@@ -158,18 +158,22 @@ function HomePage() {
 
   return (
     <Layout title={"All-Products | Best Offers"}>
-      <div className="row mt-3">
-        <div className="col-md-2 d-flex flex-column">
-          <h5 className="text-center">Filter By Category</h5>
-          {categories?.map((c) => (
-            <Checkbox
-              key={c._id}
-              onChange={(e) => handleFilter(e.target.checked, c._id)}
-              className="m-1"
-            >
-              {c.name}
-            </Checkbox>
-          ))}
+      {/* Banner Image */}
+      <img src="/images/banner2.jpg" alt="Banner_Img" className="banner-img" />
+      {/* End Banner */}
+      <div className="row mt-3 home-container">
+        <div className="col-md-3 d-flex flex-column filter">
+          <h4 className="text-center">Filter By Category</h4>
+          <div className="d-flex flex-column">
+            {categories?.map((c) => (
+              <Checkbox
+                key={c._id}
+                onChange={(e) => handleFilter(e.target.checked, c._id)}
+              >
+                <h6 className="filt-cat">{c.name}</h6>
+              </Checkbox>
+            ))}
+          </div>
 
           {/* Filter by prices */}
           <h5 className="text-center mt-3">Filter By Price</h5>
@@ -189,13 +193,13 @@ function HomePage() {
             </button>
           </div>
         </div>
-        <div className="col-md-10">
-          <h3 className="text-center">All Products</h3>
+        <div className="col-md-9">
+          <h1 className="text-center">All Products</h1>
           {/* for test purpose only */}
           {/* {JSON.stringify(checked, null, 4)} 
           {JSON.stringify(radio, null, 4)} */}
 
-          <div className="home-card">
+          <div className="d-flex flex-wrap">
             {products?.map((p) => (
               <div
                 className="card m-2 card-custom"
@@ -208,12 +212,15 @@ function HomePage() {
                   alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
+                  <div className="card-name-price">
+                    <h5 className="card-title">{p.name}</h5>
+
+                    <h5 className="text-center card-price">Rs.- {p.price} </h5>
+                  </div>
                   <p className="card-text">
                     {p.description.substring(0, 30)}...
                   </p>
-                  <h5 className="text-center">Rs.- {p.price} </h5>
-                  <div>
+                  <div className="card-name-price">
                     <button
                       className="btn btn-primary ms-1"
                       onClick={() => navigare(`/product/${p.slug}`)}

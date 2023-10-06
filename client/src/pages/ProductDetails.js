@@ -51,7 +51,7 @@ const ProductDetails = () => {
   return (
     <Layout>
       {/* {JSON.stringify(product, null, 4)} */}
-      <div className="row container mt-2">
+      <div className="row container product-details">
         <div className="col-md-6">
           <img
             style={{ height: "60vh", width: "35vw", marginLeft: "2vw" }}
@@ -60,9 +60,9 @@ const ProductDetails = () => {
             alt={product.name}
           />
         </div>
-        <div className="col-md-6">
+        <div className="col-md-6 product-details-info">
           <h1 className="text-center">Product-Details</h1>
-          <h4>Name: {product.name}</h4>
+          <h6>Name: {product.name}</h6>
           <h6>Category: {category.name}</h6>
           <h6>Price: Rs.-{product.price}</h6>
           <h6>Description: {product.description}</h6>
@@ -72,9 +72,10 @@ const ProductDetails = () => {
         </div>
       </div>
       <hr />
-      <div className="row container">
+      <div className="row container similar-products">
         <div className="col-md-12">
-          <h4 className="text-center">Simmilor Products</h4>
+          <h4>Similar Products ➡️</h4>
+          {/* <h4 className="text-center">Simmilor Products</h4> */}
           {relatedProducts?.length < 1 && (
             <p className="text-center">No Similor Product Found!</p>
           )}
@@ -88,14 +89,19 @@ const ProductDetails = () => {
                   alt={p.name}
                 />
                 <div className="card-body">
-                  <h5 className="card-title">{p.name}</h5>
+                  <div className="card-name-price">
+                    <h5 className="card-title">{p.name}</h5>
+                    <h5 className="text-center card-price">Rs.-{p.price}</h5>
+                  </div>
+
                   <p className="card-text">
                     {p.description.substring(0, 60)}...
                   </p>
-                  <h5 className="text-center">Rs.-{p.price}</h5>
-                  <button className="btn btn-secondary ms-1">
-                    Add-to-Cart
-                  </button>
+                  <div className="card-name-price">
+                    <button className="btn btn-secondary ms-1">
+                      Add-to-Cart
+                    </button>
+                  </div>
                 </div>
               </div>
             ))}

@@ -7,7 +7,7 @@ function About() {
       <div className="row contactus">
         <div className="col-md-6 img-cont">
           <img
-            className="about-img"
+            className="contact-img"
             src="/images/about.jpg"
             alt="contact-us"
             style={{ width: "90%" }}

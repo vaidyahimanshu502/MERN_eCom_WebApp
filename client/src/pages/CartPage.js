@@ -98,117 +98,119 @@ const CartPage = () => {
   };
   return (
     <Layout title={"Cart-Items"}>
-      <div className="container">
+      <div className="cart-container">
         <div className="row">
           <div className="col-md-12">
-            <h2 className="text-center bg-light">
+            <h1 className="text-center bg-light mb-2 p-2">
               {`Hello ${auth?.token && auth?.user?.name}`}
-            </h2>
-            <h5 className="text-center">
-              {cart?.length
-                ? `You have ${cart.length} item in your cart! ${
-                    auth?.token ? "" : "Please login to checkout!"
-                  }`
-                : "Your cart is empty!"}
-            </h5>
+              <p className="text-center">
+                {cart?.length
+                  ? `You have ${cart.length} item in your cart! ${
+                      auth?.token ? "" : "Please login to checkout!"
+                    }`
+                  : "Your cart is empty!"}
+              </p>
+            </h1>
           </div>
         </div>
         <hr />
-        <div className="row">
-          <div className="col-md-8">
-            <div className="row">
-              {cart?.map((p) => (
-                <div className="row mb-2 p-2 card flex-row">
-                  <div className="col-md-4">
-                    <img
-                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
-                      className="card-img-top"
-                      alt={p.name}
-                      height="200px"
-                    />
+        <div className="container">
+          <div className="row">
+            <div className="col-md-8 m09 p-0">
+              <div className="row">
+                {cart?.map((p) => (
+                  <div className="row mb-2 p-2 card flex-row">
+                    <div className="col-md-4">
+                      <img
+                        src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${p._id}`}
+                        className="card-img-top"
+                        alt={p.name}
+                        height="200px"
+                      />
+                    </div>
+                    <div className="col-md-4">
+                      <h4>Name: {p.name}</h4>
+                      <p>Description: {p.description}</p>
+                      <h4>Price: RS.{p.price}</h4>
+                      <button
+                        className="btn btn-danger cart-remove-btn"
+                        onClick={() => removeCartItem(p._id)}
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
-                  <div className="col-md-4">
-                    <h4>Name: {p.name}</h4>
-                    <p>Description: {p.description}</p>
-                    <h4>Price: RS.{p.price}</h4>
+                ))}
+              </div>
+            </div>
+            <div className="col-md-4 text-center cart-summary">
+              <h1>Cart-Summary</h1>
+              <p>Total | Payment | Checkout</p>
+              <hr />
+              <h4>Total : {totalPrice()} </h4>
+              {auth?.user?.address ? (
+                <>
+                  <div className="mb-3">
+                    <h4>Current-Address</h4>
+                    <h5>{auth?.user?.address}</h5>
                     <button
-                      className="btn btn-danger"
-                      onClick={() => removeCartItem(p._id)}
+                      className="btn btn-outline-warning"
+                      onClick={() => navigate("/dashboard/user/profile")}
                     >
-                      Remove
+                      Update-Address
                     </button>
                   </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="col-md-4 text-center">
-            <h2>Cart-Summary</h2>
-            <p>Total | Payment | Checkout</p>
-            <hr />
-            <h4>Total : {totalPrice()} </h4>
-            {auth?.user?.address ? (
-              <>
+                </>
+              ) : (
                 <div className="mb-3">
-                  <h4>Current-Address</h4>
-                  <h5>{auth?.user?.address}</h5>
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={() => navigate("/dashboard/user/profile")}
-                  >
-                    Update-Address
-                  </button>
+                  {auth?.token ? (
+                    <button
+                      className="btn btn-outline-warning"
+                      onClick={() => navigate("/dashboard/user/profile")}
+                    >
+                      Update-Address
+                    </button>
+                  ) : (
+                    <button
+                      className="btn btn-outline-warning"
+                      onClick={() =>
+                        navigate("/login", {
+                          state: "/cart",
+                        })
+                      }
+                    >
+                      Please LogIn To Check-Out
+                    </button>
+                  )}
                 </div>
-              </>
-            ) : (
-              <div className="mb-3">
-                {auth?.token ? (
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={() => navigate("/dashboard/user/profile")}
-                  >
-                    Update-Address
-                  </button>
+              )}
+              <div className="mt-2">
+                {!clientToken || !auth?.token || !cart?.length ? (
+                  " "
                 ) : (
-                  <button
-                    className="btn btn-outline-warning"
-                    onClick={() =>
-                      navigate("/login", {
-                        state: "/cart",
-                      })
-                    }
-                  >
-                    Please LogIn To Check-Out
-                  </button>
+                  <>
+                    <DropIn
+                      options={{
+                        authorization: clientToken,
+                        paypal: {
+                          flow: "vault",
+                        },
+                      }}
+                      onInstance={(newInstance) => {
+                        // console.log("Instance is set:", newInstance);
+                        setInstance(newInstance);
+                      }}
+                    />
+                    <button
+                      className="btn btn-primary"
+                      onClick={handlePayment}
+                      disabled={loading || !instance || !auth?.user?.address}
+                    >
+                      {loading ? "Processing..." : "Make-Payment"}
+                    </button>
+                  </>
                 )}
               </div>
-            )}
-            <div className="mt-2">
-              {!clientToken || !auth?.token || !cart?.length ? (
-                " "
-              ) : (
-                <>
-                  <DropIn
-                    options={{
-                      authorization: clientToken,
-                      paypal: {
-                        flow: "vault",
-                      },
-                    }}
-                    onInstance={(newInstance) => {
-                      // console.log("Instance is set:", newInstance);
-                      setInstance(newInstance);
-                    }}
-                  />
-                  <button
-                    className="btn btn-primary"
-                    onClick={handlePayment}
-                    disabled={loading || !instance || !auth?.user?.address}
-                  >
-                    {loading ? "Processing..." : "Make-Payment"}
-                  </button>
-                </>
-              )}
             </div>
           </div>
         </div>

@@ -2,10 +2,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400&display=swap");
 /* End of google fonts */
 
+/* Global */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: 14px;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  letter-spacing: 1px;
 }
 
 /* Use this for Headings : [font-family: 'Playfair Display', serif;] */
@@ -20,113 +25,88 @@
   /* box-shadow: 3px 4px 3px gray; */
   /* --webkit-box-shadow: 2px 4px 3px gray; */
   border-bottom: 2px solid black !important;
-  background-color: rgb(32, 83, 224) !important;
-  font-weight: 300;
+  background-color: rgb(0, 43, 127) !important;
+  font-weight: 500;
   /* max-height: 70px; */
   /* max-width: 99.5%; */
   /* margin-left: 5px; */
-  margin-top: 3px;
+  margin-top: 2px;
   width: 100%;
   /* height: 100%; */
 }
 
 .search-box {
-  width: 700px;
+  width: 600px;
   margin-left: 2rem;
 }
 
 .nav-link {
-  font-weight: 400 !important;
-  color: rgb(243, 237, 237);
-  /* border: 2px solid white; */
-  margin-left: 2px;
-  border-radius: 5px;
-  box-shadow: 2px 1px 2px 1px rgb(23, 54, 168);
+  /* box-shadow: 2px 1px 2px 1px rgb(0, 0, 0); */
+  background-color: rgb(0, 6, 86);
+  color: rgb(158, 155, 155) !important;
+  border: 0px;
+  margin-left: 10px;
+  border-radius: 8px;
 }
 
 .nav-link:hover {
   /* color: burlywood; */
 
-  background-color: rgb(36, 154, 12);
+  background-color: rgb(54, 158, 33);
   /* color: white; */
 }
 
 .active {
   /* border-bottom: 1px solid rgb(146, 246, 7); */
   /* color: rgb(146, 246, 7) !important; */
+  color: rgb(243, 237, 237);
+  /* border: 2px solid white; */
 
-  background-color: rgb(243, 240, 237);
+  border-radius: 5px;
+  border: 2px solid white;
 }
 
 .navbar-brand {
-  font-weight: 900;
-  font-family: "roboto", sans-serif;
-  letter-spacing: 4px;
-  color: rgba(255, 4, 4, 0.979);
-  text-transform: none;
-  font-style: italic;
-}
-
-/* Define the animation named "flicker" */
-@keyframes flicker {
-  /* Initial state of animation */
-  0%, 
-    /* Final state of animation */
-    100% {
-    text-shadow: 0 1px 3px #fff,
-      /* Innermost layer - intense heat (white) */ 0 -2px 6px #ff3,
-      /* Second layer - core of flame (yellow) */ 0 -6px 12px #f90,
-      /* Middle layer - body of flame (orange) */ 0 -10px 20px #c33; /* Outermost layer - edges of flame (red) */
-  }
-  /* Middle state of animation */
-  50% {
-    text-shadow: 0 -2px 6px #fff,
-      /* Innermost layer - intense heat (white) */ 0 -4px 12px #ff3,
-      /* Second layer - core of flame (yellow) */ 0 -8px 16px #f90,
-      /* Middle layer - body of flame (orange) */ 0 -12px 24px #c33; /* Outermost layer - edges of flame (red) */
-  }
-}
-
-.fire {
-  /* Apply the "flicker" animation to the .fire class */
-  animation: flicker 2s infinite;
-}
-.navbar-brand {
-  background-color: white;
-  color: rgb(41, 11, 235);
-  border-radius: 12px;
-  padding: -5px;
+  color: rgb(133, 130, 129);
+  border-top-right-radius: 60px;
+  border-bottom-left-radius: 60px;
+  padding: 5px;
   box-shadow: 2px 2px 2px 2px black;
+  font-weight: 900;
 }
 
 .brand-icon {
   /* color: rgb(252, 2, 2); */
   font-size: 30px;
-  font-weight: bolder;
+  font-weight: 900;
   font-style: italic;
 }
 
 .slogan {
-  font-weight: 100 !important;
+  font-weight: 300 !important;
   font-size: 14px;
-  letter-spacing: 3px;
+  letter-spacing: 1px;
   /* text-decoration: underline; */
-  margin-left: 120px;
-  margin-top: -3px;
+  margin-left: 70px;
+  margin-top: -8px;
+}
+
+.navbar-brand:hover {
+  color: rgb(196, 186, 186) !important;
 }
 
 /* **********Footer********* */
 .footer {
-  color: white;
+  color: rgb(177, 173, 173);
   padding: 25px;
-  background-image: linear-gradient(to right, rgb(56, 56, 78), #422b2b);
+  background-image: linear-gradient(to right, rgb(38, 38, 120), #6e4b4b);
   /* max-width: 99.5%; */
   width: 100%;
   height: 100%;
 }
 
 .footer a {
-  color: white;
+  color: rgb(205, 181, 181);
   text-decoration: none;
   padding: 10px;
 }
@@ -148,22 +128,27 @@
 }
 
 .pnf-title {
-  font-size: 150px;
-  font-weight: 700;
-  color: darkgrey;
+  font-size: 200px;
+  font-weight: 900;
+  color: rgb(79, 73, 73);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .pnf-heading {
-  font-weight: normal;
-  color: gray;
+  font-weight: 900;
+  color: rgb(71, 65, 65);
+  margin-top: -100px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .pnf-btn {
-  color: black;
-  border: 1px solid black;
+  color: rgb(65, 52, 52);
+  border: 3px solid rgb(67, 55, 55);
   text-decoration: none;
   padding: 5px;
   margin-top: 10px;
+  font-weight: 900;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .pnf-btn:hover {
@@ -171,11 +156,12 @@
   background: darkgrey;
 }
 
-/* ********CSS for Contact-Us Component********** */
+/* ******** CSS for Contact-Us Component ********** */
 /* .Contact {
   width: 100%;
   height: 100%;
 } */
+
 .img-cont {
   margin-top: 3vh;
   /* margin-bottom: 10px; */
@@ -185,12 +171,13 @@
 
 .contact-img {
   border-radius: 10px;
+  min-height: 65vh !important;
 }
 
 .text-cont {
   margin-top: 3vh;
   /* margin-bottom: 10px; */
-  margin-left: 3vh;
+  margin-left: 2vh;
   margin-right: 2vh;
 }
 
@@ -202,6 +189,14 @@
 .about-img {
   border-radius: 10px;
 }
+.contactus {
+  background-image: linear-gradient(
+    0deg,
+    rgb(84, 22, 22) 20%,
+    rgb(65, 64, 123) 100%
+  );
+  color: white;
+}
 
 /* ^^^^^^Styling Privacy-Policy^^^^^^^^^ */
 .policy {
@@ -209,27 +204,12 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-
-/* *******Styling our Sign-Up page******** */
-/* .register {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 75vh;
-  flex-direction: column;
-} */
-
-/* *********************Stylong Log-In, Sign-In, Forgot-Password Cimponent******************** */
-.log-in-form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 65vh;
-  flex-direction: column;
-}
-.form-container button {
-  width: 100% !important;
+  background-image: linear-gradient(
+    0deg,
+    rgb(84, 22, 22) 20%,
+    rgb(65, 64, 123) 100%
+  );
+  color: white;
 }
 
 /* Styling product link */
@@ -308,7 +288,7 @@
   border-radius: 3px;
   font-size: 20px;
 }
-.cart-link h4{
+.cart-link h4 {
   color: rgba(249, 248, 245, 0.902);
   background: rgb(231, 27, 27);
   border-radius: 50%;
@@ -318,3 +298,228 @@
   /* font-weight: 900 !important; */
   padding: 3px;
 }
+
+/* Home Page */
+.home-container {
+  /* color: white; */
+  /* background: rgb(57, 71, 97); */
+  display: flex;
+  flex-wrap: wrap;
+}
+.banner-img {
+  width: 100%;
+  max-height: 15rem;
+  margin-top: 20px;
+}
+
+.home-container h1 {
+  color: gray;
+  font-family: "Playfair Display", serif;
+}
+
+.home-container .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 18rem;
+}
+
+.home-container .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.home-container .card-price {
+  color: green;
+  font-weight: bold;
+}
+
+.home-container button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.home-container .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.home-container .card img:hover {
+  transform: scale(0.9);
+}
+
+.home-container .card-img-top {
+  height: 300px !important;
+}
+
+/* ==================
+filters
+============== */
+.filters h4 {
+  margin-top: 100px;
+  color: gray !important;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.337);
+}
+
+.ant-checkbox-wrapper:first-of-type {
+  margin-left: 8px;
+}
+
+.ant-checkbox-wrapper {
+  margin: 2px;
+}
+.ant-radio-wrapper {
+  margin-bottom: 5px !important;
+  margin-left: 10px;
+}
+
+.filters button {
+  background-color: black;
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  margin-top: 20px;
+}
+
+.loadmore {
+  color: green;
+  font-weight: bold;
+  font-size: 20px !important;
+}
+
+.home-container .btn-load-more {
+  max-width: 15vw !important;
+  text-align: center !important;
+  margin-top: -2vh !important;
+}
+
+/* Cart Page */
+
+.cart-container {
+  margin-top: 44px;
+}
+
+.cart-container h1 {
+  padding: 15px !important;
+  font-family: "roboto", sans-serif;
+  font-weight: normal;
+  background-color: rgba(0, 0, 255, 0.072) !important;
+}
+
+.cart-container h1 > p {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+.cart-container .card {
+  padding: 5px !important;
+  height: 210px !important;
+  margin-bottom: 15px !important;
+}
+.cart-container .cart-remove-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cart-container .cart-summary {
+  text-align: center;
+  /* margin-top: -140px !important; */
+}
+
+/* CategoryProduct Page */
+.category {
+  /* display: flex; */
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 44px !important;
+}
+.category .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 18rem;
+}
+.category .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.category .card-price {
+  color: green;
+  font-weight: bold;
+}
+.category button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.category .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.category .card img:hover {
+  transform: scale(0.9);
+}
+
+.category .card-img-top {
+  height: 300px !important;
+}
+
+/* Product-Details Page */
+.product-details {
+  margin-top: 100px !important;
+}
+
+.product-details-info {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.product-details-info h6 {
+  margin-bottom: 20px !important;
+}
+
+.similar-products .card {
+  background-color: rgba(128, 128, 128, 0.097);
+  width: 18rem;
+}
+
+.similar-products .card-name-price {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.similar-products .card-price {
+  color: green;
+  font-weight: bold;
+}
+.similar-products button {
+  border-radius: 0;
+  width: 100%;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.similar-products .card-text {
+  color: rgb(90, 89, 89);
+}
+
+.similar-products .card img:hover {
+  transform: scale(0.9);
+}
+
+.similar-products .card-img-top {
+  height: 300px !important;
+}
+

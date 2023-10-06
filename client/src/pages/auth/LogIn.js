@@ -48,7 +48,7 @@ function LogIn() {
     }
   };
   return (
-    <Layout title={"Sign-In Ecom-WebApp"}>
+    <Layout title={"Sign-In | Ecom-WebApp"}>
       <div className="form-container">
         <form onSubmit={handleSubmit}>
           <h1>Log-In Form</h1>
@@ -76,20 +76,18 @@ function LogIn() {
             />
           </div>
 
-          <div className="mb-3">
-            <button
-              type="button"
-              className="btn btn-primary"
-              onClick={() => {
-                navigate("/forgot-password");
-              }}
-            >
-              Forgot-Password?
-            </button>
-          </div>
-
           <button type="submit" className="btn btn-primary">
             LogIn
+          </button>
+
+          <button
+            type="button"
+            className="btn btn-primary"
+            onClick={() => {
+              navigate("/forgot-password");
+            }}
+          >
+            Forgot-Password?
           </button>
         </form>
       </div>
