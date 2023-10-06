@@ -52,6 +52,11 @@ router.get("/orders/:userId", checkAuthentication, getOrders);
 router.get("/all-orders", checkAuthentication, isAdmin, getAllOrders);
 
 // Order Status Updates
-router.put("/order-status/:orderId", checkAuthentication, isAdmin, changOrderStatus);
+router.put(
+  "/order-status/:orderId",
+  checkAuthentication,
+  isAdmin,
+  changOrderStatus
+);
 
 module.exports = router;
