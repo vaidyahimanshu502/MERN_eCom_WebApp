@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import Layout from "../components/layouts/Layout";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { useCart } from "../context/Cart";
+import toast from "react-hot-toast";
 
 const CategoryProducts = () => {
   const params = useParams();
   const navigare = useNavigate();
   const [products, setProducts] = useState([]);
   const [category, setCategory] = useState();
+
+  const [cart, setCart] = useCart();
 
   const getProductsByCat = async () => {
     try {
@@ -43,7 +47,9 @@ const CategoryProducts = () => {
                   <div className="card-body">
                     <div className="card-name-price">
                       <h5 className="card-title">{p.name}</h5>
-                      <h5 className="text-center card-price">Rs.- {p.price} </h5>
+                      <h5 className="text-center card-price">
+                        Rs.- {p.price}{" "}
+                      </h5>
                     </div>
 
                     <p className="card-text">
@@ -56,7 +62,18 @@ const CategoryProducts = () => {
                       >
                         More-Details
                       </button>
-                      <button className="btn btn-secondary ms-1">
+                      <button
+                        className="btn btn-secondary ms-1"
+                        onClick={() => {
+                          setCart([...cart, p]);
+                          // Storing items into localstorage
+                          localStorage.setItem(
+                            "cart",
+                            JSON.stringify([...cart, p])
+                          );
+                          toast.success(`${p.name} is added to cart!`);
+                        }}
+                      >
                         Add-to-Cart
                       </button>
                     </div>

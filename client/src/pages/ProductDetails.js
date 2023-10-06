@@ -3,6 +3,7 @@ import Layout from "../components/layouts/Layout";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import { useCart } from "../context/Cart";
 
 const ProductDetails = () => {
   // Variable for params
@@ -12,6 +13,8 @@ const ProductDetails = () => {
   const [product, setProduct] = useState({});
   const [category, setCategory] = useState("");
   const [relatedProducts, setRelatedProducts] = useState([]);
+
+  const [cart, setCart] = useCart([]);
 
   //Function for getting product
   const getProduct = async () => {
@@ -68,7 +71,17 @@ const ProductDetails = () => {
           <h6>Description: {product.description}</h6>
           <h6>In-Stock: {product.quantity}</h6>
 
-          <button className="btn btn-secondary ms-1">Add-to-Cart</button>
+          <button
+            className="btn btn-secondary ms-1"
+            onClick={() => {
+              setCart([...cart, product]);
+              // Storing items into localstorage
+              localStorage.setItem("cart", JSON.stringify([...cart, product]));
+              toast.success(`${product.name} is added to cart!`);
+            }}
+          >
+            Add-to-Cart
+          </button>
         </div>
       </div>
       <hr />
@@ -98,7 +111,18 @@ const ProductDetails = () => {
                     {p.description.substring(0, 60)}...
                   </p>
                   <div className="card-name-price">
-                    <button className="btn btn-secondary ms-1">
+                    <button
+                      className="btn btn-secondary ms-1"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        // Storing items into localstorage
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success(`${p.name} is added to cart!`);
+                      }}
+                    >
                       Add-to-Cart
                     </button>
                   </div>
