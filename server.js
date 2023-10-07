@@ -9,8 +9,7 @@ const userRouter = require("./routers/user"); // importing routers [user.js]
 const categoryRouter = require("./routers/category");
 const productsRouter = require("./routers/products");
 const cors = require("cors");
-const formidable = require("express-formidable");
-
+const path = require("path");
 
 //configure database
 connectMongo();
@@ -24,6 +23,7 @@ app.use(express.urlencoded());
 app.use(express.json()); // Alternative of body-parser
 app.use(morgan("dev")); // Using for for development only
 // app.use(formidable());
+app.use(express.static(path.join(__dirname, "./client/build")));
 
 //routes
 app.use("/api/v1/user", userRouter); // requiring our routes [MiddleWare]
@@ -31,9 +31,8 @@ app.use("/api/v1/category", categoryRouter);
 app.use("/api/v1/product", productsRouter);
 
 // Rest APIs jsut for home page testing purpose
-
-app.get("/", (req, res) => {
-  res.send("<h1>Welcome to E-com Website!</h1>");
+app.use("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
 });
 
 // PORT on which app is running

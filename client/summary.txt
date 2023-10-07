@@ -1381,4 +1381,13 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
       1] Change the run command in package.jso 
           -------"dev": "concurrently \"npm run start\" \"npm run client\""
       2] In the react server  passing command for build -- npm run build.
-      3] 
+      3] In server.js importing path and set the path for the react app
+         const path = require("path");
+
+         in middlewares
+         app.use(express.static(path.join(__dirname, "./client/build")));
+
+         for rendering react app
+         app.use("*", function (req, res) {
+           res.sendFile(path.join(__dirname, "./client/build/index.html"));
+         })
