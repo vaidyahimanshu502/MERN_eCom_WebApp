@@ -1376,3 +1376,9 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
       2] For changing status and getting all orders from the DB created states and custom methods
          at backend and front-end both.
              For more info go and see the AdminOrders.js.
+
+********** Deployment ***********
+      1] Change the run command in package.jso 
+          -------"dev": "concurrently \"npm run start\" \"npm run client\""
+      2] In the react server  passing command for build -- npm run build.
+      3] 

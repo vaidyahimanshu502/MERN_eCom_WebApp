@@ -45,8 +45,6 @@ module.exports.create = async (req, res) => {
   }
 };
 
-
-
 // Controller for update CATEGORY
 module.exports.update = async (req, res) => {
   try {
@@ -79,8 +77,6 @@ module.exports.update = async (req, res) => {
   }
 };
 
-
-
 // Controller for Getting CATEGORIES
 module.exports.getCategories = async (req, res) => {
   try {
@@ -91,7 +87,7 @@ module.exports.getCategories = async (req, res) => {
       categories,
     });
   } catch (error) {
-    let errMsg = message.message;
+    let errMsg = error.message;
     if (process.env.environment === "production") {
       errMsg = "Internal Server message!";
     }
@@ -101,8 +97,6 @@ module.exports.getCategories = async (req, res) => {
     });
   }
 };
-
-
 
 // Controller for Get-Single CATEGORY
 module.exports.getSingleCategory = async (req, res) => {
@@ -131,8 +125,6 @@ module.exports.getSingleCategory = async (req, res) => {
     });
   }
 };
-
-
 
 // Controller for delete CATEGORY
 module.exports.deleteCategory = async (req, res) => {

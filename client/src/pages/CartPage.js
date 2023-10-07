@@ -130,7 +130,7 @@ const CartPage = () => {
                     </div>
                     <div className="col-md-4">
                       <h4>Name: {p.name}</h4>
-                      <p>Description: {p.description}</p>
+                      <p>Description: {p.description.substring(0, 30)}</p>
                       <h4>Price: RS.{p.price}</h4>
                       <button
                         className="btn btn-danger cart-remove-btn"
