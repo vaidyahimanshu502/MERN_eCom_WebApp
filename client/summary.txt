@@ -4,7 +4,7 @@
 step 1:- create-react-app client.
 step 2:- remove the all codes from app.css, index.css, app.js [excepts component].
 step 3:- write a h1 tag inside the app component.
-step 4:- Now addinc bootstrap into index.html file of public.
+step 4:- Now adding bootstrap into index.html file of public.
 atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
@@ -15,7 +15,7 @@ atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 **************************** Creating Our Layout *********************************
 
 
-step 6:- creating component folder inside the src and inside the components created theree files
+step 6:- created components folder inside the src and inside the components created theree files
         1]- Layout.js [make it functional components]--rfce{shortcut}
         2]- Header.js
         3]- Footer.js        
@@ -24,7 +24,7 @@ step 7:- Now wrapping our app component into the Layout component and in Layout 
 step 8:- Adding Header and Footer components to the Layout component.
 step 9:- Giving the min Height = 80vh to the main tag for  shifting footer bellow.
 step 9:- Giving the className of footer and giving some bootstrap styles. [class= bg-dark text-light p-3]
-step 10:- Giving the class = text-center to the h1 of footer and write 'All Right Reserved &copy; Techinfoyt'.
+step 10:- Giving the class = text-center to the h1 of footer and write 'All Right Reserved &copy; Himanshu Vaidya'.
 
 
 ********************************* END **************************************************************************
