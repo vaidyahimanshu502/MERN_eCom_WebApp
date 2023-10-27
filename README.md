@@ -1,21 +1,26 @@
 # MERN-Full-Stack-Ecom-WebApp
 
-# Visit-Link - https://dailycart.cyclic.app
+## Visit-Link - https://dailycart.cyclic.app
 
-# Tech-Stacks Used
+## Tech-Stacks Used
+
   1] JavaScript as a Scripting Language.
 
   2] Bootstrap for implementing some basic designs.
 
-  3] NodeJs For backend technology.
+  3] CSS for giving extra styles.
 
-  4] ReactJs For front-end technology
+  4] NodeJs For backend technology.
 
-  5] MongoDB for Database Managegement.
+  5] ReactJs For front-end technology
 
-  6 ] ExpressJs For creating Server
+  6] MongoDB for Database Managegement.
 
-# Basic Set-Up 
+  7] ExpressJs For creating Server
+
+  8] Many npms for node and reacts 
+
+## Locals Set-Up 
 
 step 1:- create-react-app client.
 
@@ -29,19 +34,48 @@ atep 5:- Also adding google fonts [poppins-300 and, playfairs-700].
 
 
                                 ************ END *****************
-# Sources
+## Sources
 
   1] Inspired by Flipcart, Mesho, Amazon
 
   2] Searching from google while stuck to implement any functionalitie mostaly -- Stack Over Flow and GitHub.
 
-# Home Page View
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/f38287e6-03fc-4f13-b449-fc325c426e8e)
+## Overvies
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/a7d8118e-fb0d-41ba-9150-6f3b10a26a0f)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/661b801f-156c-4111-8d72-924e6a3db4f0)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/4b733df6-de93-4c8d-b9fb-9eb346cffb2c)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/38b8f91b-6f2b-4c8d-bb77-afa09165873f)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/95189de2-9be9-4a4f-aae3-a00fa082d0f9)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/57c73ade-5310-400b-964a-076c5c81a53f)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/d3904d5a-b111-4bb7-b17d-99b58338e0be)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/79d758ae-1440-491b-bf8b-68d5e110475d)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/8a916036-f72f-436b-be1d-3b0c6842f7b6)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/3a80ebfa-a3e1-436f-a3a8-5783b0b504ca)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/4325db7c-5f13-49af-ac8d-0de6a574ccbb)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/a0d67a95-e34d-43ae-94b6-c3c6b3107399)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/1693ebf1-1c87-430b-bec3-868651ef8396)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/5fa7e649-ecbe-448e-aac3-d248bfac8556)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/8ffd8266-5104-414e-9bd6-eb0bad2bd070)
+
+![image](https://github.com/vaidyahimanshu502/MERN_eCom_WebApp/assets/76218691/50093b31-5b4b-4438-8a61-f58ca42dd8d2)
 
 
-
-
-# Creating Our Layout 
+## Creating Our Layout 
 
 
 step 6:- creating component folder inside the src and inside the components created theree files
@@ -65,12 +99,12 @@ step 10:- Giving the class = text-center to the h1 of footer and write 'All Righ
 
 
                              ****************** END **********************
-# Routing 
+## Routing 
 ![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/525c2fb8-5496-4b97-8d27-fc0f280556a2)
 
 
 
-# Routing Features **********************
+## Routing Features
 
 
 step 11:- For routing we are going to use 'react-router-dom' framework , installing it by passing command 'npm i react-router-dom'.
@@ -109,11 +143,7 @@ NOTE--- '*' Means when none of above pages meets then navigates to PageNotFound 
                                  ************** END *****************
 
 
-
-# NavBar
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/cd8866fe-340a-4aa2-a303-e9b27e7c8a0b)
-
-# Working On NavBar Section *********************
+## Working On NavBar Section
 
 
 step 20:- Going to bootstrap click on 'docs' and search 'navbar' in searchbar and select responsive behaviour from
@@ -146,13 +176,8 @@ step 20:- Going to bootstrap click on 'docs' and search 'navbar' in searchbar an
                                 *************** END ********************
 
 
-# Footer
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/61ef0413-8365-430b-8dc0-5227869ac818)
 
-
-# Working on Footer Component *********************
-
-
+## Working on Footer Component 
 
 step 21:- Now going to Mordify our Footer components.....
 
@@ -166,12 +191,9 @@ step 21:- Now going to Mordify our Footer components.....
 
 
                                    ************* END ********************
-# Page Not Found
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/bb04e5d0-8412-4a5e-911b-4f551a75f4c9)
 
 
-
-# Working on PageNotFound Component ********************     
+## Working on PageNotFound Component   
 
 step 22:- Creating Page Not Fount page----
 
@@ -181,11 +203,9 @@ step 22:- Creating Page Not Fount page----
 
 
                               **************** END *****************
-# Contact
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/d267b3d7-fa80-4c17-bbb7-f509500a2933)
 
 
-# Working on Contact Component ******************    
+## Working on Contact Component    
 
 step 23:- Now going to design our Contact component-----
 
@@ -205,12 +225,10 @@ step 23:- Now going to design our Contact component-----
 
 
                               **************** END ************************
-# About 
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/5d38d1ec-4744-4193-b714-6095e1225949)
 
 
 
-# Working On About Component **********************         
+## Working On About Component        
 
 step 24:- Now going to modify About Component------
 
@@ -218,15 +236,11 @@ step 24:- Now going to modify About Component------
 
 
 
-                            *************** END *********************
-# Privacy
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/78f17ccf-88e8-4953-ab62-eb956457967d)
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/04ddbd39-d54d-49ff-99a1-715909a19401)
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/3584b4b4-9f68-46c8-806a-29ec2e559c81)
+                            *************** END ********************
 
 
 
-# Worling On Privacy Policy Component **********************
+## Worling On Privacy Policy Component
 
 step 25:- Now going to design our Privacy-Policy Components-------
 
@@ -240,7 +254,7 @@ step 25:- Now going to design our Privacy-Policy Components-------
 
 
 
-# Little bit Working on SEO **********************
+## Little bit Working on SEO 
 
 step 26:- Working on SEO [Search Engine Optimisation.]
 
@@ -273,11 +287,8 @@ step 26:- Working on SEO [Search Engine Optimisation.]
 
                            **************** END ********************
 
-# Sign-Up Page
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/db8f279f-ad5a-46d9-8448-574daf0dbe61)
 
-
-# Working on Sign-Up Component ************************
+## Working on Sign-Up Component
 
 step 27:- Now we are going to design our Sign-Up Page. first create two Components inside the users folder of pages.
 
@@ -318,7 +329,7 @@ step 27:- Now we are going to design our Sign-Up Page. first create two Componen
                              *************** END ******************
 
 
-# Working On APIs From BackEnd **********************
+## Working On APIs From BackEnd 
 
 step 28:- Now going to use axios for sending or getiing network request to the server---
 
@@ -370,7 +381,7 @@ step 31:- Same things has been achived for login Component also we have to just 
                                 ****************** END **********************
 
 
-# Working On Context APIs ***********************
+## Working On Context APIs 
 
 
 step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLOBAL STATEs----->
@@ -552,7 +563,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
 
 
-# Working On Procted Routes ***************************
+## Working On Protected Routes
 
    step 33:- Now Going to create Protected Routes for our Application------
    
@@ -609,15 +620,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
                                 ***************** End **************************
 
-# Sign-In With Forgot Password
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/53c4636f-6adb-4fc0-b5a8-43fdde32371d)
-# UserLog-In
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/6ab7bae0-0e2a-458b-8ddd-19f4e2f6e3af)
-# User's Dashboard
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/8bea743e-74e8-44a4-9b90-aab3791f7497)
-
-
-# Working On ForGet Password *************************
+## Working On ForGet Password
 
   step 34:- Working on forgot-Password------------>
   
@@ -649,7 +652,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                                *************** END *****************************
 
 
-# Working On Role Based Authentication ************************
+## Working On Role Based Authentication 
 
 
   Step 34:- Working on Role based authentication--------------
@@ -661,15 +664,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
                                 **************** END *********************************
 
-# Admin Dashboard
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/998f0c3c-59af-4908-a930-6c9909f72835)
-# Create Category
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/00b4a2d2-4d45-4ceb-a25f-48660618e931)
-# Create Products
-![image](https://github.com/vaidyahimanshu502/MERN-Full-Stack-Ecom-WebApp/assets/76218691/67b87f96-8e95-473b-883a-31d4fa20a0b1)
-
-
-# Working on Dashboard and Admin ************************
+## Working on Dashboard and Admin 
 
 
   Step 35:- Working on Admin and DashBoard---------------------------
@@ -753,7 +748,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
                                        ******************* END *******************
 
 
-# Working on Categories ********************
+## Working on Categories
 
   step 36:- Working on Category--------------
   
@@ -899,7 +894,7 @@ step 32:- Now we are going to use CONTEXT APIs Instead of Redux for managing GLO
 
 
 
-# Working on Product's CRUD [Front-End]  *****
+## Working on Product's CRUD [Front-End]
 
    Step 38:- Working on Products ---------------------
 
